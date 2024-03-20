@@ -1,0 +1,91 @@
+:root {
+    /* font size */
+    --main-font-size: 20px;
+    --tiny-font-size: 14px;
+    --subtitle-font-size: 42px;
+    --title-font-size: 64px;
+
+    /* font color */
+    --gray-font-color: #828282;
+
+    /* font family */
+    --main-font: system-ui;
+
+    /* font weight */
+    --bold-font-weight: 800;
+
+
+    /* border radius */
+    --main-border-radius: 8px;
+}
+
+
+/* button style */
+.white-button {
+    height: 40px;
+    background-color: #EEEEEE;
+    color: #000000;
+    border: #EEEEEE;
+    border-radius: 8px;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.black-button {
+    height: 40px;
+    background-color: #000000;
+    color: #EEEEEE;
+    border: #000000;
+    border-radius: 8px;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.white-page-number-button {
+    height: 40px;
+    background-color: #EEEEEE;
+    color: #000000;
+    border: #EEEEEE;
+    border-radius: 8px;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.black-page-number-button {
+    height: 40px;
+    background-color: #000000;
+    color: #EEEEEE;
+    border: #000000;
+    border-radius: 8px;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* input style */
+.text-input {
+    height: 36px;
+    background-color: #FFFFFF;
+    color: #000000;
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 0px 12px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.text-input::placeholder {
+    color: #828282;
+}
