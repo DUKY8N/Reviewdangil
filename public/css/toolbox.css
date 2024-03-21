@@ -19,6 +19,63 @@
     --main-border-radius: 8px;
 }
 
+/* a style */
+.white-a {
+    display: inline-block;
+    background-color: #EEEEEE;
+    color: #000000;
+    border: #EEEEEE;
+    border-radius: 8px;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 40px;
+}
+
+.black-a {
+    display: inline-block;
+    background-color: #000000;
+    color: #EEEEEE;
+    border: #000000;
+    border-radius: 8px;
+    padding: 0px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 40px;
+}
+
+.white-page-number-a {
+    display: inline-block;
+    background-color: #EEEEEE;
+    color: #000000;
+    border: #EEEEEE;
+    border-radius: 8px;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 40px;
+}
+
+.black-page-number-a {
+    display: inline-block;
+    background-color: #000000;
+    color: #EEEEEE;
+    border: #000000;
+    border-radius: 8px;
+    padding: 0px 15px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 40px;
+}
+
 
 /* button style */
 .white-button {
