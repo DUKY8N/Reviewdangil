@@ -1,0 +1,8 @@
+@import url(sign_up.css);
+
+.main_header {
+    padding: 60px 0 80px;
+    text-align: center;
+    font-size: var(--title-font-size);
+    font-weight: var(--bold-font-weight);
+}

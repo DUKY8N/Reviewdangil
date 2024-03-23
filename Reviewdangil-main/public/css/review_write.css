@@ -1,0 +1,13 @@
+.input_headline {
+    width: 1000px;
+    padding: 30px;
+    margin: 50px;
+    font-size: var(--subtitle-font-size);
+    border: #EEEEEE;
+    border-radius: 8px;
+}
+
+.input_headline::placeholder {
+    color: #000000;
+    font-weight: 800;
+}
