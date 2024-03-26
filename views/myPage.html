@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../public/css/toolbox.css" />
+		<link rel="stylesheet" href="../public/css/headerModule.css" />
+		<link rel="stylesheet" href="../public/css/myPage.css" />
+		<title>Document</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<a href="#" class="main-header-logo">Reviewdangil</a>
+			<div class="main-header-left-element">
+				<ul>
+					<li><a href="#" class="white-a">계정 관리</a></li>
+					<li><a href="#" class="white-a">로그아웃</a></li>
+				</ul>
+				<img src="./sample.avif" alt="프로필 이미지" />
+			</div>
+		</header>
+		<h1>마이 페이지</h1>
+		<div id="center-container">
+			<main>
+				<div id="my-info-form">
+					<div class="my-info-form-item">
+						<label for="nickname">닉네임</label>
+						<input type="text" id="nickname" class="text-input" />
+					</div>
+					<div class="my-info-form-item">
+						<label for="birth">생년월일</label>
+						<input type="number" id="birth" class="text-input" />
+					</div>
+					<div class="my-info-form-item">
+						<label for="email">이메일</label>
+						<input type="email" id="email" class="text-input" />
+					</div>
+					<div class="my-info-form-item">
+						<label for="password">비밀번호</label>
+						<input
+							type="password"
+							id="password"
+							class="text-input"
+						/>
+					</div>
+				</div>
+				<div id="right-container">
+					<div id="profile-img-container">
+						<img
+							src="https://picsum.photos/200/300"
+							alt="profile-img"
+						/>
+						<div>
+							<button class="white-button">사진 수정</button>
+							<button class="white-button">사진 삭제</button>
+						</div>
+					</div>
+					<div id="buttons">
+						<button class="delete-button black-button">
+							계정 삭제
+						</button>
+						<button class="my-info-form-submit black-button">
+							계정 수정
+						</button>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>
