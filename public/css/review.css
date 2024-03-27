@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.input_headline {
+    width: 750px;
+    padding: 30px;
+    margin: 50px 50px 0 50px;
+    font-size: var(--subtitle-font-size);
+    border: #EEEEEE;
+    border-radius: 8px;
+}
+
+.input_headline::placeholder {
+    color: #828282;
+    font-weight: 800;
+}
+
+.location_input {
+    width: 500px;
+    margin-left: 70px;
+    border-style: none;
+    font-size: var(--main-font-size);
+    white-space: normal;
+}
+
+.location_map {
+    width: 1600px;
+    height: 450px;
+    margin: 30px 0 0 70px; 
+    background-color: darkgray; /* js구현 후 삭제 */
+    font-size: var(--main-font-size);
+}
+
+.img_scroll {
+    width: 1650px;
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+.img_review_container {
+    display: inline-block;
+}
+
+.img_review {
+    width: 450px;
+    height: 450px;
+    margin: 30px 0 0 72px; 
+    padding-right: 5px;
+    border-radius: 8px;   
+}
+
+#text_review {
+    width: 1600px;
+    height: 300px;
+    padding: 10px;
+    border-style: none;
+    border-radius: 8px;
+    margin: 30px 0 10px 70px;
+    font-size: var(--main-font-size);
+    overflow-y: scroll;
+}
+
+.text_review::placeholder {
+    color:#828282;
+    font-size: var(--main-font-size);
+
+}
+
+.star-rating {
+    display: static;
+}
+
+.star {
+    appearance: none;
+}
+  
+.star::after {
+    content: '☆';
+    color: #ffd400;
+    font-size: 50px;
+}
+
+.star:hover::after {
+    content: '★';
+  }
+
+.star:has(~ .star:hover)::after {
+    content: '★';
+}
+
+.star:checked::after,
+.star:has(~ .star:checked)::after {
+  content: '★';
+}
