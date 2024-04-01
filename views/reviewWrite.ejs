@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
+		<link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
+		<link rel="stylesheet" href="/stylesheets/review.css" />
+		<title>Reviewdangil</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<a href="#" class="main-header-logo">Reviewdangil</a>
+			<div class="main-header-left-element">
+				<ul>
+					<li><a href="#" class="white-a">계정 관리</a></li>
+					<li><a href="#" class="white-a">로그아웃</a></li>
+				</ul>
+				<img src="../public/.img/blankProfil.png" alt="#" />
+			</div>
+		</header>
+		<div class="scrollbar"></div>
+		<label
+			><input
+				type="text"
+				class="input_headline"
+				name="headline"
+				placeholder="제목을 입력하세요"
+			/>
+			<span class="star-rating">
+				<input type="radio" class="star" value="1" />
+				<input type="radio" class="star" value="2" />
+				<input type="radio" class="star" value="3" />
+				<input type="radio" class="star" value="4" />
+				<input type="radio" class="star" value="5" />
+			</span>
+		</label>
+		<div>
+			<input
+				type="text"
+				class="text-input location_input"
+				name="location"
+				placeholder="위치를 입력하세요"
+			/>
+		</div>
+		<div class="location_map"></div>
+		<figure class="img_scroll">
+			<div class="img_review_container">
+				<img class="img_review" src="../img/blank_profil.png" />
+				<img class="img_review" src="../img/blank_profil.png" />
+				<img class="img_review" src="../img/blank_profil.png" />
+				<img class="img_review" src="../img/blank_profil.png" />
+				<img class="img_review" src="../img/blank_profil.png" />
+				<img class="img_review" src="../img/blank_profil.png" />
+			</div>
+		</figure>
+		<button class="white-button" style="margin: 30px 0 0 70px">
+			이미지 첨부하기
+		</button>
+		<!-- js구현 해야함 -->
+
+		<div>
+			<textarea
+				id="text_review"
+				rows="5"
+				cols="60"
+				placeholder="내용을 입력하세요"
+			></textarea>
+		</div>
+		<div style="margin: 50px 0 50px 1400px">
+			<button class="white-button" type="reset">
+				<span class="white-button">취소</span>
+			</button>
+			<button class="black-button" type="file">
+				<span class="black-button">작성 완료</span>
+			</button>
+		</div>
+	</body>
+</html>
