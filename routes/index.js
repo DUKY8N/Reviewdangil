@@ -12,10 +12,6 @@ router.get("/signup", function (req, res, next) {
 	res.render("signUp");
 });
 
-router.get("/signup", function (req, res, next) {
-	res.render("signUp");
-});
-
 router.get("/home", function (req, res, next) {
 	res.render("userHome");
 });
@@ -24,7 +20,7 @@ router.get("/more-review", function (req, res, next) {
 	res.render("moreReview");
 });
 
-router.get("review-read", function (req, res, next) {
+router.get("/review-read", function (req, res, next) {
 	res.render("reviewRead");
 });
 
