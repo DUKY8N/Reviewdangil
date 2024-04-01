@@ -1,9 +1,53 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get("/", function (req, res, next) {
+	res.render("login");
+});
+
+// 유저 페이지
+
+router.get("/signup", function (req, res, next) {
+	res.render("signUp");
+});
+
+router.get("/signup", function (req, res, next) {
+	res.render("signUp");
+});
+
+router.get("/home", function (req, res, next) {
+	res.render("userHome");
+});
+
+router.get("/more-review", function (req, res, next) {
+	res.render("moreReview");
+});
+
+router.get("review-read", function (req, res, next) {
+	res.render("reviewRead");
+});
+
+router.get("/review-write", function (req, res, next) {
+	res.render("reviewWrite");
+});
+
+router.get("/mypage", function (req, res, next) {
+	res.render("myPage");
+});
+
+// 관리자 페이지
+
+router.get("/admin/announce-write", function (req, res, next) {
+	res.render("announceWrite");
+});
+
+router.get("/admin/review-read", function (req, res, next) {
+	res.render("reviewRead");
+});
+
+router.get("/admin/user-management", function (req, res, next) {
+	res.render("userManagement");
 });
 
 module.exports = router;
