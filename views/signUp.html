@@ -28,19 +28,14 @@
         <button class="white-button" type="file"><span class="white-button">사진 추가</span>
         </button>
     </div>
-    <label class="text-input-middle-size">ID<input style="left: 150px;" type="text" name="id">
-    </label>
-    <label class="text-input-middle-size">PW<input style="left: 125px;" type="text" name="pw">
-    </label>
-    <label class="text-input-middle-size">PW 확인<input style="left: 25px;" type="text" name="match_pw">
-    </label>
-    <label class="text-input-middle-size">닉네임<input style="left: 67px;" type="text" name="nickname">
-    </label>
-    <label class="text-input-middle-size">생년월일<input style="left: 25px;"type="date" name="birth">
-    </label>
-    <label class="text-input-middle-size">이메일<input style="left: 67px;"type="text" name="email">
-    </label>
-    <button style="margin-left:1600px;"class="black-button" >계정 생성
-    </button>
+    <form action="/signup" method="post" enctype="multipart/form-data">
+        <label class="text-input-middle-size">ID<input style="left: 150px;" type="text" name="id"></label>
+        <label class="text-input-middle-size">PW<input style="left: 125px;" type="text" name="pw"></label>
+        <label class="text-input-middle-size">PW 확인<input style="left: 25px;" type="text" name="match_pw"></label>
+        <label class="text-input-middle-size">닉네임<input style="left: 67px;" type="text" name="nickname"></label>
+        <label class="text-input-middle-size">생년월일<input style="left: 25px;"type="date" name="birth"></label>
+        <label class="text-input-middle-size">이메일<input style="left: 67px;"type="text" name="email"></label>
+        <button style="margin-left:1600px;"class="black-button" type="submit">계정 생성</button>
+      </form>
 </body>
 </html>

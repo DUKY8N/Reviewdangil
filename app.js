@@ -7,6 +7,7 @@ const mysql = require('mysql');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var signUpRouter = require('./routes/signup'); 
 
 var app = express();
 
@@ -17,6 +18,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname, 'views/login.html'));
 });
+
 // Middleware 설정
 app.use(logger('dev'));
 app.use(express.json());
@@ -28,6 +30,7 @@ app.use('/..', express.static(path.join(__dirname, '..')));
 // 라우트 설정
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/signup', signUpRouter); // Add this line
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
