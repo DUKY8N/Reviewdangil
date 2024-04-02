@@ -7,7 +7,7 @@ const mysql = require("mysql");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var signUpRouter = require("./routes/signup");
+var signUpRouter = require("./routes/signUp");
 
 var app = express();
 
@@ -26,7 +26,7 @@ app.use("/..", express.static(path.join(__dirname, "..")));
 // 라우트 설정
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-app.use("/signup", signUpRouter); // Add this line
+app.use("/signUp", signUpRouter); 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
