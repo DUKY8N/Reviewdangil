@@ -11,12 +11,12 @@
 	</head>
 	<body>
 		<header class="main-header">
-			<a href="#" class="main-header-logo">Reviewdangil</a>
+			<a href="/home" class="main-header-logo">Reviewdangil</a>
 			<div class="main-header-left-element">
 				<ul>
-					<li><a href="#" class="white-a">계정 관리</a></li>
+					<li><a href="/mypage" class="white-a">계정 관리</a></li>
 					<li>
-						<a href="localhost:3000" class="white-a">로그아웃</a>
+						<a href="/login" class="white-a">로그아웃</a>
 					</li>
 				</ul>
 				<img src="https://picsum.photos/200/300" alt="프로필 이미지" />
@@ -40,26 +40,28 @@
 					/>
 				</div>
 				<div id="bottom-buttons-container">
-					<a href="#" class="white-a">리뷰 쓰기</a>
+					<a href="review-write" class="white-a">리뷰 쓰기</a>
 				</div>
 			</section>
 			<section id="right-container">
 				<h1>현 위치 최근 리뷰</h1>
 				<div id="info-container">
-					<div class="info-card">
-						<img src="https://picsum.photos/200" alt="썸네일" />
-						<div class="info-card-text">
-							<span>리뷰 제목</span>
-							<span class="review-text-thumbnail">
-								리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-								어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용 어쩌고
-								저쩌고 어쩌고 저쩌고
-							</span>
-							<span>위치</span>
+					<a href="/review-read">
+						<div class="info-card">
+							<img src="https://picsum.photos/200" alt="썸네일" />
+							<div class="info-card-text">
+								<span>리뷰 제목</span>
+								<span class="review-text-thumbnail">
+									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
+									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
+									어쩌고 저쩌고 어쩌고 저쩌고
+								</span>
+								<span>위치</span>
+							</div>
 						</div>
-					</div>
+					</a>
 				</div>
-				<a href="#" class="white-a" id="more-info-button">
+				<a href="/more-review" class="white-a" id="more-info-button">
 					리뷰 더보기
 				</a>
 			</section>
