@@ -20,6 +20,10 @@ router.get("/more-review", function (req, res, next) {
 	res.render("moreReview");
 });
 
+router.get("/announce-read", function (req, res, next) {
+	res.render("announceRead");
+});
+
 router.get("/review-read", function (req, res, next) {
 	res.render("reviewRead");
 });
