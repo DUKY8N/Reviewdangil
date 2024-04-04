@@ -1,19 +1,49 @@
-.input_headline {
-    width: 750px;
-    padding: 30px;
-    margin: 50px 50px 0 50px;
-    font-size: var(--subtitle-font-size);
-    border: #EEEEEE;
-    border-radius: 8px;
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
 }
 
-#text_review {
-    width: 1800px;
-    height: 500px;
-    padding: 10px;
+main {
+    display: flex;
+	flex-direction: column;
+    flex-grow: 1;
+	margin: 30px;
+}
+
+#headline {
+    display: flex;
+    font-size: var(--title-font-size);
+}
+
+#headline input {
+    font-size: var(--title-font-size);
+    outline: none;
+    border: none;
+}
+
+#containerText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    flex-grow: 1;
     border-style: none;
-    border-radius: 8px;
-    margin: 30px 0 10px 70px;
     font-size: var(--main-font-size);
-    overflow-y: scroll;
+    margin-top: 20px;
+}
+#containerText textarea {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    border: none;
+    resize: none;
+}
+
+#containerBottom {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    width: 90%;
+    gap: 10px;
+    margin-top: 20px;
 }
