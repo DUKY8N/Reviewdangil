@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
-		<link rel="stylesheet" href="/stylesheets/login.css" />
-		<link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
-		<title>Reviewdangil</title>
-	</head>
-	<body>
-		<header class="main-header">
-			<a href="#" class="main-header-logo">Reviewdangil</a>
-			<div class="main-header-left-element">
-				<ul>
-					<li><a href="#" class="white-a">계정 관리</a></li>
-					<li><a href="#" class="white-a">로그아웃</a></li>
-				</ul>
-				<img src="../img/blank_profil.png" alt="#" />
-			</div>
-		</header>
-		<h1>로그인</h1>
-		<main>
-			<div id="idPw">
-				<label class="text-input-middle-size">ID
-					<input style="margin:0 0 0 150px;" type="text" name="id">
-				</label>
-				<label class="text-input-middle-size">PW
-					<input style="margin:0 0 0 125px;" type="text" name="pw">
-				</label>
-			</div>
-			<div id="buttons">
-				<a href="/signUp">
-				<button class="white-button">
-					회원 가입
-				</button>
-				</a>
-				<button class="black-button">
-					로그인
-				</button>
-			</div>
-		</main>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
+        <link rel="stylesheet" href="/stylesheets/login.css" />
+        <link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
+        <title>Reviewdangil</title>
+    </head>
+    <body>
+        <header class="main-header">
+            <a href="#" class="main-header-logo">Reviewdangil</a>
+            <div class="main-header-left-element">
+                <ul>
+                    <li><a href="#" class="white-a">계정 관리</a></li>
+                    <li><a href="#" class="white-a">로그아웃</a></li>
+                </ul>
+                <img src="../img/blank_profil.png" alt="#" />
+            </div>
+        </header>
+        <h1>로그인</h1>
+        <main>
+            <form action="/api/login" method="POST">
+                <div id="idPw">
+                    <label class="text-input-middle-size">ID
+                        <input style="margin:0 0 0 150px;" type="text" name="username">
+                    </label>
+                    <label class="text-input-middle-size">PW
+                        <input style="margin:0 0 0 125px;" type="password" name="password">
+                    </label>
+                </div>
+                <div id="buttons">
+                    <a href="/signUp">
+                    <button type="button" class="white-button">
+                        회원 가입
+                    </button>
+                    </a>
+                    <button type="submit" class="black-button">
+                        로그인
+                    </button>
+                </div>
+            </form>
+        </main>
+    </body>
 </html>
