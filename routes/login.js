@@ -39,9 +39,12 @@ passport.serializeUser(function(user, done) {
 
 // 로그인 라우트
 router.post('/',
-  passport.authenticate('local', { successRedirect: '/home',
-                                   failureRedirect: '/',
-                                   failureFlash: true })
+  passport.authenticate('local', {
+    failureRedirect: '/login?message=' + encodeURIComponent('로그인이 틀렸습니다.'),
+    failureFlash: true
+  }),
+  function(req, res) {
+    res.redirect('/home');
+  }
 );
-
 module.exports = router;

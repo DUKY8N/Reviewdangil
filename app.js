@@ -6,7 +6,7 @@ var logger = require("morgan");
 const mysql = require("mysql");
 var session = require('express-session');
 const crypto = require('crypto');
-
+var flash = require('connect-flash');
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var signUpRouter = require("./routes/signUp");
@@ -25,6 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/..", express.static(path.join(__dirname, "..")));
+app.use(flash());
 
 // 세션 미들웨어 설정
 const secret = crypto.randomBytes(64).toString('hex');

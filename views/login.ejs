@@ -43,4 +43,11 @@
             </form>
         </main>
     </body>
+	<script>
+		var urlParams = new URLSearchParams(window.location.search);
+		var message = urlParams.get('message');
+		if (message) {
+		  alert(decodeURIComponent(message));
+		}
+	  </script>
 </html>
