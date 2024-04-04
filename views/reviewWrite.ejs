@@ -16,64 +16,49 @@
 					<li><a href="#" class="white-a">계정 관리</a></li>
 					<li><a href="#" class="white-a">로그아웃</a></li>
 				</ul>
-				<img src="../public/.img/blankProfil.png" alt="#" />
+				<img src="https://picsum.photos/200/300" alt="#" />
 			</div>
 		</header>
-		<div class="scrollbar"></div>
-		<label
-			><input
-				type="text"
-				class="input_headline"
-				name="headline"
-				placeholder="제목을 입력하세요"
-			/>
-			<span class="star-rating">
-				<input type="radio" class="star" value="1" />
-				<input type="radio" class="star" value="2" />
-				<input type="radio" class="star" value="3" />
-				<input type="radio" class="star" value="4" />
-				<input type="radio" class="star" value="5" />
-			</span>
-		</label>
-		<div>
-			<input
-				type="text"
-				class="text-input location_input"
-				name="location"
-				placeholder="위치를 입력하세요"
-			/>
-		</div>
-		<div class="location_map"></div>
-		<figure class="img_scroll">
-			<div class="img_review_container">
-				<img class="img_review" src="../img/blank_profil.png" />
-				<img class="img_review" src="../img/blank_profil.png" />
-				<img class="img_review" src="../img/blank_profil.png" />
-				<img class="img_review" src="../img/blank_profil.png" />
-				<img class="img_review" src="../img/blank_profil.png" />
-				<img class="img_review" src="../img/blank_profil.png" />
+		<main>
+			<div class="scrollbar"></div>
+			<div id="containerTop">
+				<div id="headline">
+					<input type="text" name="headline" placeholder="제목을 입력하세요">
+				</div>
+				<span class="starRating">
+					<input type="radio" class="star" value="1" />
+					<input type="radio" class="star" value="2" />
+					<input type="radio" class="star" value="3" />
+					<input type="radio" class="star" value="4" />
+					<input type="radio" class="star" value="5" />
+				</span>
 			</div>
-		</figure>
-		<button class="white-button" style="margin: 30px 0 0 70px">
-			이미지 첨부하기
-		</button>
-		<!-- js구현 해야함 -->
-
-		<div>
-			<textarea
-				id="text_review"
-				rows="5"
-				cols="60"
-				placeholder="내용을 입력하세요"
-			></textarea>
-		</div>
-		<div style="margin: 50px 0 50px 1400px">
-			<button class="white-button" type="reset">
-				<span class="white-button">취소</span>
-			</button>
-			<button class="black-button" type="file">
-				<span class="black-button">작성 완료</span>
-			</button>
-		</div>
+			<div id="containerLocation">
+				<input type="text" name="location" placeholder="위치를 입력하세요">
+			</div>
+			<div id="containerMap">맵 불러올 자리</div>
+			<figure>
+				<div id="containerImg">
+					<img src="https://picsum.photos/450/450" />
+					<img src="https://picsum.photos/450/450" />
+					<img src="https://picsum.photos/450/450" />
+					<img src="https://picsum.photos/450/450" />
+					<img src="https://picsum.photos/450/450" />
+					<img src="https://picsum.photos/450/450" />
+				</div>
+			<button class="white-button">이미지 첨부하기</button>
+			</figure>
+			<div id="containerText">
+				<textarea name="text" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' placeholder="내용을 입력하세요"></textarea>
+			</div>
+			<div id="containerBottom">
+				<button class="white-button">
+					취소
+				</button>
+				<button class="black-button">
+					작성 완료
+				</button>
+			</div>
+		</main>
 	</body>
 </html>

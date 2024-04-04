@@ -1,23 +1,84 @@
-.mainHeader {
-    padding: 60px 0 80px;
-    text-align: center;
-    font-size: var(--title-font-size);
-    font-weight: var(--bold-font-weight);
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--main-font);
 }
-.imgProfil {
+
+h1 {
+    font-size: var(--title-font-size);
+    margin: 80px 0 40px 0; 
+    text-justify: center;
+    text-align: center;
+}
+
+main {
+    display: flex;
+	flex-direction: row;
+	gap: 80px;
+	margin: 0 20px;
+	width: 1000px;
+}
+
+form {
+	display: flex;
+    flex-direction: row;
+	align-items: center;
+	width: 100%;
+}
+
+#formLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 65vw;
+}
+
+#formRight {
+    display: flex;
+    flex-direction: column;
+    width: 35vw;
+    align-content: center;
+    justify-content: center;
+}
+
+#formImg {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+}
+
+#formImg img {
     width: 300px;
     height: 300px;
     border-radius: 50%;
 }
-.imgButton {
-    position: absolute;
-    top: 15%;
-    left: 75%;
-    transform: translate(0%, 50%);
-    font-size: var(--main-font-size);
+
+#formButton {
+    display: flex;
+    margin:20px 0 0 0;
+	gap: 75px;
 }
 
-body {
-    margin: 0;
-    padding: 0;
+#summitButton {
+    display: flex;
+    justify-content: flex-end;
+    width: 80vw;
+}
+
+.text-input-middle-size {
+    display: flex;
+    height: 40px;
+    padding: 5px 0 40px 30px;
+    font-size: var(--subtitle-font-size);
+    font-weight: var(--semibold-font-weight);
+    align-items: center;
+    white-space: nowrap; 
+}
+
+.text-input-middle-size input {
+    font-size: var(--subtitle-font-size);
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding-left: 10px;
 }

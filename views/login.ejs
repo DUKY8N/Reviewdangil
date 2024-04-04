@@ -19,30 +19,26 @@
 				<img src="../img/blank_profil.png" alt="#" />
 			</div>
 		</header>
-		<header class="mainHeader">로그인</header>
-		<label style="margin-top: 100px" class="text-input-middle-size"
-			>ID<input
-				style="left: 150px; width: 1000px"
-				type="text"
-				name="id"
-			/>
-		</label>
-		<label class="text-input-middle-size"
-			>PW<input
-				style="left: 125px; width: 1000px"
-				type="text"
-				name="pw"
-			/>
-		</label>
-		<div style="margin-left: 1250px">
-			<a href="/signUp">
-			<button class="white-button" type="reset">
-				<span class="white-button">회원 가입</span>
-			</button>
-			</a>
-			<button class="black-button" type="file">
-				<span class="black-button">로그인</span>
-			</button>
-		</div>
+		<h1>로그인</h1>
+		<main>
+			<div id="idPw">
+				<label class="text-input-middle-size">ID
+					<input style="margin:0 0 0 150px;" type="text" name="id">
+				</label>
+				<label class="text-input-middle-size">PW
+					<input style="margin:0 0 0 125px;" type="text" name="pw">
+				</label>
+			</div>
+			<div id="buttons">
+				<a href="/signUp">
+				<button class="white-button">
+					회원 가입
+				</button>
+				</a>
+				<button class="black-button">
+					로그인
+				</button>
+			</div>
+		</main>
 	</body>
 </html>

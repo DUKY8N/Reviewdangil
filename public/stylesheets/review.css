@@ -1,75 +1,111 @@
 body {
     margin: 0;
     padding: 0;
+    font-family: var(--main-font);
 }
 
-.input_headline {
-    width: 750px;
-    padding: 30px;
-    margin: 50px 50px 0 50px;
-    font-size: var(--subtitle-font-size);
+main {
+    display: flex;
+	flex-direction: column;
+    flex-grow: 1;
+	margin: 30px;
+}
+
+h1 {
+    font-size: var(--title-font-size);
     border: #EEEEEE;
-    border-radius: 8px;
 }
 
-.input_headline::placeholder {
-    color: #828282;
-    font-weight: 800;
+#headline {
+    display: flex;
+    font-size: var(--title-font-size);
+    background-color: black;
 }
 
-.location_input {
-    width: 500px;
-    margin-left: 70px;
-    border-style: none;
-    font-size: var(--main-font-size);
-    white-space: normal;
+#headline input {
+    font-size: var(--title-font-size);
+    outline: none;
+    border: none;
 }
 
-.location_map {
-    width: 1600px;
+#containerTop {
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+}
+
+#containerLocation {
+    display: flex;
+    flex-direction: row;
+    justify-items: flex-start;
+}
+
+#containerLocation input {
+    font-size: var(--tiny-font-size);
+    outline: none;
+    border: none;
+}
+
+#containerMap {
+    display: flex;
+    width: 90%;
     height: 450px;
-    margin: 30px 0 0 70px; 
-    background-color: darkgray; /* js구현 후 삭제 */
-    font-size: var(--main-font-size);
+    margin-top: 20px;
+    background-color: darkgray;
 }
 
-.img_scroll {
-    width: 1650px;
+#containerImg {
+    display: flex;
+    width: 90%;
+    flex-direction: row;
+    flex-wrap: nowrap;
     overflow-x: scroll;
-    white-space: nowrap;
-  }
-
-.img_review_container {
-    display: inline-block;
+    margin-top: 20px;
 }
-
-.img_review {
+#containerImg img {
     width: 450px;
     height: 450px;
-    margin: 30px 0 0 72px; 
-    padding-right: 5px;
-    border-radius: 8px;   
-}
-
-#text_review {
-    width: 1600px;
-    height: 300px;
-    padding: 10px;
-    border-style: none;
+    margin: 0 10px 0 0; 
     border-radius: 8px;
-    margin: 30px 0 10px 70px;
-    font-size: var(--main-font-size);
-    overflow-y: scroll;
 }
 
-.text_review::placeholder {
-    color:#828282;
-    font-size: var(--main-font-size);
-
+figure button {
+    margin:20px 0 0 0;
 }
 
-.star-rating {
-    display: static;
+#containerText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    flex-grow: 1;
+    border-style: none;
+    font-size: var(--main-font-size);
+    margin-top: 20px;
+}
+#containerText textarea {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    border: none;
+    resize: none
+}
+
+#containerBottom {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    width: 90%;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.starRating {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 1;
+    align-items: flex-start;
+    margin: 50px 0 0 50px;
+
 }
 
 .star {
