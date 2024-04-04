@@ -10,53 +10,48 @@
 	</head>
 	<body>
 		<header class="main-header">
-			<a href="#" class="main-header-logo">Reviewdangil</a>
-			<div class="main-header-left-element">
-				<ul>
-					<li><a href="#" class="white-a">계정 관리</a></li>
-					<li><a href="#" class="white-a">로그아웃</a></li>
-				</ul>
-				<img src="https://picsum.photos/200/300" alt="#" />
-			</div>
+			<a href="/" class="main-header-logo">Reviewdangil</a>
 		</header>
 		<h1>회원가입</h1>
-		<form action="/signUp" method="post" enctype="multipart/form-data">
-			<div id="formLeft">
-				<label class="text-input-middle-size">ID
-					<input style="margin:0 0 0 150px;" type="text" name="id">
-				</label>
-				<label class="text-input-middle-size">PW
-					<input style="margin:0 0 0 125px;"type="text" name="pw">
-				</label>
-				<label class="text-input-middle-size">PW 확인
-					<input style="margin:0 0 0 25px;"type="text" name="matchPw">
-				</label>
-				<label class="text-input-middle-size">닉네임
-					<input style="margin:0 0 0 67px;"type="text" name="nickname">
-				</label>
-				<label class="text-input-middle-size">생년월일
-					<input style="margin:0 0 0 25px;;"type="text" name="birth">
-				</label>
-				<label class="text-input-middle-size">이메일
-					<input style="margin:0 0 0 66px;"type="text" name="email">
-				</label>
-			</div>
-			<div id="formRight">
-				<div id="formImg">
-					<img src="https://picsum.photos/300/300" alt="#"/>
+		<main>
+			<form action="/signUp" method="post" enctype="multipart/form-data">
+				<div id="formLeft">
+					<label class="text-input-middle-size">ID
+						<input style="margin:0 0 0 150px;" type="text" name="id">
+					</label>
+					<label class="text-input-middle-size">PW
+						<input style="margin:0 0 0 125px;"type="text" name="pw">
+					</label>
+					<label class="text-input-middle-size">PW 확인
+						<input style="margin:0 0 0 25px;"type="text" name="matchPw">
+					</label>
+					<label class="text-input-middle-size">닉네임
+						<input style="margin:0 0 0 67px;"type="text" name="nickname">
+					</label>
+					<label class="text-input-middle-size">생년월일
+						<input style="margin:0 0 0 25px;;"type="text" name="birth">
+					</label>
+					<label class="text-input-middle-size">이메일
+						<input style="margin:0 0 0 66px;"type="text" name="email">
+					</label>
 				</div>
-				<div id="formButton">
-					<button class="white-button">
-						사진 삭제
-					</button>
-					<button class="white-button">
-						사진 편집
-					</button>
+				<div id="formRight">
+					<div id="formImg">
+						<img src="https://picsum.photos/300/300" alt="#"/>
+					</div>
+					<div id="formButton">
+						<button class="white-button">
+							사진 삭제
+						</button>
+						<button class="white-button">
+							사진 편집
+						</button>
+					</div>
 				</div>
+			</form>
+			<div id="summitButton">
+				<a href="/" class="black-a">계정 생성</a>
 			</div>
-		</form>
-		<div id="summitButton">
-			<button class="black-button">계정 생성</button>
-		</div>
+		</main>
 	</body>
 	</html>

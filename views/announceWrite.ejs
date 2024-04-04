@@ -10,11 +10,11 @@
 	</head>
 	<body>
 		<header class="main-header">
-			<a href="#" class="main-header-logo">Reviewdangil</a>
+			<a href="/home" class="main-header-logo">Reviewdangil</a>
 			<div class="main-header-left-element">
 				<ul>
-					<li><a href="#" class="white-a">계정 관리</a></li>
-					<li><a href="#" class="white-a">로그아웃</a></li>
+					<li><a href="/mypage" class="white-a">계정 관리</a></li>
+					<li><a href="/" class="white-a">로그아웃</a></li>
 				</ul>
 				<img src="./sample.avif" alt="프로필 이미지" />
 			</div>
@@ -28,12 +28,9 @@
 				<textarea name="text" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' style="min-height: 300px;" placeholder="내용을 입력하세요"></textarea>
 			</div>
 			<div id="containerBottom">
-				<button class="white-button">
-					취소
-				</button>
-				<button class="black-button">
-					작성 완료
-				</button>
+				<a href="/home" class="white-a">취소</a>
+				<a href="/review-read" class="black-a">작성 완료</a>
+				
 			</div>
 		</main>
 	</body>
