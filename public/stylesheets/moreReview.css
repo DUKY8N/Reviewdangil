@@ -58,6 +58,10 @@ main h1 {
 	max-width: 1300px;
 	gap: 50px 50px;
 }
+#info-grid-container a {
+	text-decoration: none;
+	color: black;
+}
 
 #page-number-container {
 	display: flex;
