@@ -14,22 +14,27 @@
 		</header>
 		<h1>로그인</h1>
 		<main>
-			<div id="formAccount">
-				<label class="text-input-middle-size">ID
-					<input style="margin:0 0 0 50px;" type="text" name="id">
-				</label>
-				<label class="text-input-middle-size">PW
-					<input style="margin:0 0 0 25px;" type="text" name="pw">
-				</label>
-			</div>
-			<div id="buttons">
-				<a href="/signup" class="white-a">
-					회원 가입
-				</a>
-				<a href="/home" class="black-a">
-					로그인
-				</a>
-			</div>
+            <form action="/api/login" method="POST">
+                <div id="formAccount">
+                    <label class="text-input-middle-size">ID
+                        <input style="margin:0 0 0 50px;" type="text" name="id">
+                    </label>
+                    <label class="text-input-middle-size">PW
+                        <input style="margin:0 0 0 25px;" type="text" name="pw">
+                    </label>
+                </div>
+                <div id="buttons">
+                    <a href="/signup" class="white-a">회원 가입</a>
+                    <a href="/home" type="submit" class="black-a">로그인</a>
+                </div>
+            </form>
 		</main>
 	</body>
+    <script>
+		var urlParams = new URLSearchParams(window.location.search);
+		var message = urlParams.get('message');
+		if (message) {
+		  alert(decodeURIComponent(message));
+		}
+	  </script>
 </html>

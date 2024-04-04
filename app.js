@@ -4,10 +4,13 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mysql = require("mysql");
-
+var session = require('express-session');
+const crypto = require('crypto');
+var flash = require('connect-flash');
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var signUpRouter = require("./routes/signup");
+var signUpRouter = require("./routes/signUp");
+var loginRouter = require('./routes/login');
 
 var app = express();
 
@@ -22,9 +25,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/..", express.static(path.join(__dirname, "..")));
+app.use(flash());
+
+// 세션 미들웨어 설정
+const secret = crypto.randomBytes(64).toString('hex');
+app.use(session({
+  secret: secret,
+  resave: false,
+  saveUninitialized: false
+}));
 
 // 라우트 설정
 app.use("/", indexRouter);
+app.use('/api/login', loginRouter);
 app.use("/users", usersRouter);
 app.use("/api/signUp", signUpRouter); 
 
