@@ -7,7 +7,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/login", function (req, res, next) {
-	res.render("login");
+    res.render("login", { message: req.flash('error') });
 });
 
 // 유저 페이지
