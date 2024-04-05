@@ -29,7 +29,7 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 65%;
+    width: 100%;
 }
 
 #formRight {
