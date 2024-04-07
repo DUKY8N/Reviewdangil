@@ -22,16 +22,23 @@
 		<main>
 			<div class="scrollbar"></div>
 			<div id="containerTop">
-				<h1>작성된 제목</h1>
-				<span class="starRating">
-					<input type="radio" class="star" value="1" />
-					<input type="radio" class="star" value="2" />
-					<input type="radio" class="star" value="3" />
-					<input type="radio" class="star" value="4" />
-					<input type="radio" class="star" value="5" />
-				</span>
+				<div id="headline">
+					<h1>작성된 제목</h1>
+				</div>
+				<div class="star-rating space-x-4 mx-auto">
+					<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
+					<label for="5-stars" class="star pr-4">★</label>
+					<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
+					<label for="4-stars" class="star">★</label>
+					<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
+					<label for="3-stars" class="star">★</label>
+					<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
+					<label for="2-stars" class="star">★</label>
+					<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
+					<label for="1-star" class="star">★</label>
+				</div>
 			</div>
-			<div id="containerLocation"></div>
+			<div id="containerLocation">위치 불러올 자리</div>
 			<div id="containerMap">맵 불러올 자리</div>
 			<div id="containerImg">
 				<img src="https://picsum.photos/450/450" />
@@ -41,7 +48,16 @@
 				<img src="https://picsum.photos/450/450" />
 				<img src="https://picsum.photos/450/450" />
 			</div>
-			<div id="containerText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis itaque adipisci cupiditate odio. Exercitationem quidem magnam cumque, vitae neque maiores eius nihil? Illum officia iure, totam voluptates nesciunt deleniti eaque?
+			<div id="containerText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae temporibus dolorum aliquid optio a quisquam nobis dolore quia reiciendis in dolorem ipsa nihil harum, cupiditate praesentium fugiat impedit, corporis magnam.
+			Sit qui eos molestiae obcaecati quasi laudantium blanditiis maiores, excepturi vel, sequi dignissimos velit exercitationem possimus autem eaque. Esse maiores cumque ratione minus vero beatae ipsam illo dolorum aut velit.
+			Sed cum ipsam quas quidem, eligendi reiciendis optio? Consequuntur earum veritatis porro eligendi cumque, cum quisquam laudantium ipsam omnis pariatur debitis autem inventore doloribus dolorem illo. Nam suscipit maxime dicta.
+			Doloremque esse nisi quas veniam necessitatibus expedita animi iste distinctio assumenda minima quidem eos a minus non, eaque perferendis fuga dolor blanditiis reiciendis corporis cumque, deserunt, nulla quod. Quas, officiis!
+			Totam quod architecto temporibus ad, laboriosam earum! Atque aperiam hic dolor accusantium assumenda omnis libero, porro beatae, eaque nobis illum quae alias. Doloremque sed quae libero unde deserunt dolores sapiente.
+			Incidunt, praesentium eveniet. Deleniti, delectus illo maiores nisi incidunt voluptates necessitatibus amet perspiciatis, eveniet aut optio vel aliquid impedit suscipit. Optio earum ullam error provident porro ducimus obcaecati perspiciatis maiores.
+			Voluptatibus blanditiis est quidem labore dolorum nulla, tempore nobis eveniet deserunt at accusamus animi id unde beatae magnam odit perferendis voluptas nisi! Omnis architecto nihil accusantium delectus ducimus sequi qui!
+			Repellendus voluptatibus laborum molestias sint illum exercitationem voluptas, deserunt reiciendis incidunt provident similique deleniti iusto at totam cum reprehenderit eaque. Autem, cupiditate nesciunt iure ipsa officia laboriosam! Illum, magni. Explicabo.
+			Odit doloremque repellendus quae, quisquam officiis dolorem praesentium, molestias et autem aliquid impedit eaque. In eius aperiam aliquid eveniet, voluptate deserunt minima praesentium labore porro eligendi nisi temporibus, dolore quas?
+			Culpa facere eos officiis reprehenderit consectetur assumenda, ad esse. Possimus unde nobis quasi, inventore quo optio! Quibusdam necessitatibus dolores ipsum cupiditate officia in natus impedit, voluptas possimus. Alias, tempora minus. ipsum dolor sit amet consectetur adipisicing elit. Corporis itaque adipisci cupiditate odio. Exercitationem quidem magnam cumque, vitae neque maiores eius nihil? Illum officia iure, totam voluptates nesciunt deleniti eaque?
 			Corrupti fugiat animi nesciunt repudiandae tempore iusto harum officia dolores voluptatum labore iure, totam aliquam natus temporibus minima illo quae? A quidem eius, ducimus pariatur quas possimus voluptatibus doloribus laboriosam?
 			Voluptates nesciunt laudantium corporis ipsam doloribus nisi, reprehenderit ad iure vel veniam eum saepe sed optio odit praesentium. Sint rem animi itaque vel qui optio consequuntur. Veritatis ratione similique inventore.
 			Perferendis maxime vero libero, voluptas tempore quia laborum quod tempora unde molestiae consectetur commodi obcaecati? Illum id nisi blanditiis fuga in repellat odit reiciendis! Minus tempore porro at pariatur magnam.

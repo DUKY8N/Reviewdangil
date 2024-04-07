@@ -10,3 +10,16 @@ main {
     flex-grow: 1;
 	margin: 30px;
 }
+
+h1 {
+    font-size: var(--title-font-size);
+}
+
+#containerText {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    flex-grow: 1;
+    border-style: none;
+    font-size: var(--main-font-size);
+}
