@@ -46,15 +46,12 @@ function ensureAuthenticated(req, res, next) {
 }
 
 router.get("/mypage", ensureAuthenticated, function (req, res, next) {
-  console.log('req.session:', req.session); // 세션 전체를 출력
-  console.log('req.session.passport:', req.session.passport); // 세션의 passport 객체 전체를 출력
   var userId = req.session.passport.user;
-  console.log('userId:', userId); // 사용자 ID 출력
   var connection = req.app.locals.connection;
   connection.query('SELECT * FROM user WHERE id = ?', [userId], function(err, results) {
     if (err) return next(err);
     var user = results[0];
-    res.render("myPage", { user: user });
+    res.render("myPage", { user: user, message: req.flash('message') });
   });
 });
 // 관리자 페이지
