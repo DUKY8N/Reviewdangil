@@ -54,12 +54,49 @@
 				<button class="white-button">이미지 첨부하기</button>
 			</div>
 			<div id="containerText">
-				<textarea name="text" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' placeholder="내용을 입력하세요"></textarea>
+				<textarea name="contents" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' placeholder="내용을 입력하세요"></textarea>
 			</div>
 			<div id="containerBottom">
 				<a href="/home" class="white-a">취소</a>
-				<a href="review-read" class="black-a">작성 완료</a>
+				<a href="/review-read" class="black-a">작성 완료</a>
 			</div>
 		</main>
 	</body>
+	<script>
+		document.querySelector('#containerBottom .black-a').addEventListener('click', function(e) 
+	{
+		e.preventDefault();
+
+		// var reviewId = 1;
+		var userId = document.querySelector().value;
+		var rating = document.querySelector('input[name="rating"]:checked').value;
+		// var headline = document.querySelector('#headline input').value;
+		// var createdDay = document.querySelector().value;
+		// var location = document.querySelector('#containerLocation input').value;
+		var contents = document.querySelector('#containerText textarea').value;
+
+		var data = {
+			'REVIEW_ID'
+			'headline': headline,
+			'rating': rating,
+			'location': location,
+			'CONTENTS': contents
+		};
+
+		fetch('/review-read', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(data),
+		})
+		.then(response => response.json())
+		.then(data => {
+			console.log('Success:', data);
+		})
+		.catch((error) => {
+			console.error('Error:', error);
+		});
+	});
+	</script>
 </html>
