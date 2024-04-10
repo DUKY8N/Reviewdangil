@@ -2,6 +2,7 @@ var express = require("express");
 var mysql = require("mysql");
 var router = express.Router();
 
+// 리뷰 쓰기
 router.post("/new-review", (req, res) => {
 	const { LOCATION_NAME, LATITUDE, LONGTITUDE, USER_ID, RATING, CONTENTS } =
 		req.body;
@@ -35,6 +36,29 @@ router.post("/new-review", (req, res) => {
 					});
 				}
 			);
+		}
+	);
+});
+
+//리뷰 수정
+router.put("/:REVIEW_ID", (req, res) => {
+	const { REVIEW_ID } = req.params;
+	const { RATING, CONTENTS } = req.body;
+	console.log(REVIEW_ID, RATING, CONTENTS);
+
+	const updateReviewQuery = `
+        UPDATE review
+        SET RATING = ?, CONTENTS = ?
+        WHERE REVIEW_ID = ?
+    `;
+
+	req.app.locals.connection.query(
+		updateReviewQuery,
+		[RATING, CONTENTS, REVIEW_ID],
+		(error, result) => {
+			if (error) return res.status(500).send({ error: error.message });
+
+			res.status(200).send({ message: "Review successfully updated" });
 		}
 	);
 });
