@@ -92,4 +92,25 @@ router.get("/:LATITUDE/:LONGTITUDE/:page?", (req, res) => {
 	);
 });
 
+//게시물 보기
+router.get("/:REVIEW_ID", (req, res) => {
+	const { REVIEW_ID } = req.params;
+
+	const selectReviewQuery = `
+        SELECT USER_ID, RATING, CREATED_DATE, CONTENTS
+        FROM review
+        WHERE REVIEW_ID = ?
+    `;
+
+	req.app.locals.connection.query(
+		selectReviewQuery,
+		[REVIEW_ID],
+		(error, reviews) => {
+			if (error) return res.status(500).send({ error: error.message });
+
+			res.status(200).send({ reviews });
+		}
+	);
+});
+
 module.exports = router;
