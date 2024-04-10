@@ -63,4 +63,33 @@ router.put("/:REVIEW_ID", (req, res) => {
 	);
 });
 
+//리뷰 검색
+router.get("/:LATITUDE/:LONGTITUDE/:page?", (req, res) => {
+	const { LATITUDE, LONGTITUDE, page } = req.params;
+	const offset = (page - 1 || 0) * 12;
+
+	const selectReviewQuery = `
+        SELECT REVIEW_ID, USER_ID, RATING, CREATED_DATE, CONTENTS
+        FROM review
+        WHERE location_id IN (
+            SELECT location_id
+            FROM location
+            WHERE LATITUDE BETWEEN ? - 0.1 AND ? + 0.1
+            AND LONGTITUDE BETWEEN ? - 0.1 AND ? + 0.1
+        )
+        ORDER BY CREATED_DATE DESC
+        LIMIT 12 OFFSET ?
+    `;
+
+	req.app.locals.connection.query(
+		selectReviewQuery,
+		[LATITUDE, LONGTITUDE, LATITUDE, LONGTITUDE, offset],
+		(error, reviews) => {
+			if (error) return res.status(500).send({ error: error.message });
+
+			res.status(200).send({ reviews });
+		}
+	);
+});
+
 module.exports = router;
