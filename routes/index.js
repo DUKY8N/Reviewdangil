@@ -22,7 +22,17 @@ router.get("/home", function (req, res, next) {
 });
 
 router.get("/more-review", function (req, res, next) {
-	res.render("moreReview");
+    // 데이터베이스에서 리뷰를 가져옵니다.
+    req.app.locals.connection.query('SELECT * FROM review', function(error, reviews) {
+        if (error) {
+            // 에러 처리
+            console.error(error);
+            res.status(500).send('Database Error');
+        } else {
+            // 'moreReview' 템플릿에 리뷰 데이터를 전달하고 렌더링합니다.
+            res.render("moreReview", { reviews: reviews });
+        }
+    });
 });
 
 router.get("/announce-read", function (req, res, next) {

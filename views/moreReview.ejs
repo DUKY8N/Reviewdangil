@@ -31,176 +31,22 @@
 			</div>
 			<div id="info-container">
 				<div id="info-grid-container">
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
+					<% reviews.forEach(function(review){ %>
+						<a href="/review-read">
+							<div class="info-card">
+								<img src="https://picsum.photos/200" alt="썸네일" />
+								<div class="info-card-text">
+									<span><%= review.HEADLINE %></span>
+									<span class="review-text-thumbnail">
+										<%= review.CONTENTS %>
+									</span>
+									<span><%= review.location_id %></span>
+								</div>
 							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
+						</a>
+					<% }); %>
 							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-				</div>
-			</div>
+						</a>
 			<div id="page-number-container">
 				<a href="#" class="black-page-number-a">1</a>
 				<a href="#" class="white-page-number-a">2</a>
