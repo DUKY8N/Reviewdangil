@@ -46,19 +46,8 @@
       <section id="right-container">
         <h1>현 위치 최근 리뷰</h1>
         <div id="info-container">
-          <a href="/review-read">
-            <div class="info-card">
-              <img src="https://picsum.photos/200" alt="썸네일" />
-              <div class="info-card-text">
-                <span>리뷰 제목</span>
-                <span class="review-text-thumbnail">
-                  리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용 어쩌고 저쩌고
-                  어쩌고 저쩌고 리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고
-                </span>
-                <span>위치</span>
-              </div>
-            </div>
-          </a>
+          리뷰를 검색하시려면, <br />
+          좌측 상단 검색창을 이용해 주세요.
         </div>
         <a href="/more-review" class="white-a" id="more-info-button">
           리뷰 더보기
@@ -108,6 +97,8 @@
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
         var bounds = new kakao.maps.LatLngBounds();
+        var infoContainer = document.getElementById("info-container");
+        infoContainer.innerHTML = "";
 
         for (var i = 0; i < data.length; i++) {
           // 검색 결과가 경주 지역 내에 있는지 확인합니다
@@ -124,6 +115,25 @@
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         map.setBounds(bounds);
+        let centerLatitude = (bounds.qa + bounds.pa) / 2;
+        let centerLongitude = (bounds.ha + bounds.oa) / 2;
+        fetch(`/api/review/${centerLatitude}/${centerLongitude}`)
+          .then((response) => response.json())
+          .then((data) => {
+            data.reviews.forEach((review) => {
+              var card = createInfoCard({
+                headline: review.HEADLINE,
+                contents: review.CONTENTS,
+                address_name: review.LOCATION_NAME,
+              });
+              console.log(card);
+              infoContainer.appendChild(card);
+            });
+          })
+          .catch((error) => {
+            // Handle any errors that occur during the fetch request
+            console.error(error);
+          });
       }
     }
 
@@ -157,5 +167,41 @@
           searchPlaces();
         }
       });
+    function createInfoCard(place) {
+      var link = document.createElement("a");
+      link.href = `/review-read/${place.id}`; // 예시로 각 장소의 상세 리뷰 페이지로 연결
+      link.className = "info-card-link";
+
+      var card = document.createElement("div");
+      card.className = "info-card";
+
+      var image = document.createElement("img");
+      image.src = "https://picsum.photos/200";
+      image.alt = "썸네일";
+
+      var textContainer = document.createElement("div");
+      textContainer.className = "info-card-text";
+
+      var title = document.createElement("span");
+      title.textContent = place.headline;
+
+      var content = document.createElement("span");
+      content.className = "review-text-thumbnail";
+      content.textContent = place.contents.slice(0, 50) + "...";
+
+      var location = document.createElement("span");
+      location.textContent = `위치: ${place.address_name}`;
+
+      textContainer.appendChild(title);
+      textContainer.appendChild(content);
+      textContainer.appendChild(location);
+
+      card.appendChild(image);
+      card.appendChild(textContainer);
+
+      link.appendChild(card);
+
+      return link;
+    }
   </script>
 </html>

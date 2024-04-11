@@ -74,21 +74,21 @@ router.get("/:LATITUDE/:LONGTITUDE/:page?", (req, res) => {
   const offset = (page - 1 || 0) * 12;
 
   const selectReviewQuery = `
-		SELECT REVIEW_ID, USER_ID, RATING, CREATED_DATE, CONTENTS
-		FROM review
-		WHERE location_id IN (
-			SELECT location_id
-			FROM location
-			WHERE LATITUDE BETWEEN ? - 0.1 AND ? + 0.1
-			AND LONGTITUDE BETWEEN ? - 0.1 AND ? + 0.1
-		)
-		ORDER BY CREATED_DATE DESC
-		LIMIT 12 OFFSET ?
-	`;
+    SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
+    l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
+
+    FROM review r
+    JOIN location l ON r.location_id = l.location_id
+    WHERE l.LATITUDE BETWEEN ? - 0.01 AND ? + 0.01
+    AND l.LONGTITUDE BETWEEN ? - 0.01 AND ? + 0.01
+    ORDER BY r.CREATED_DATE DESC
+    LIMIT 12 OFFSET ?
+
+  `;
 
   req.app.locals.connection.query(
     selectReviewQuery,
-    [LATITUDE, LONGTITUDE, LATITUDE, LONGTITUDE, offset],
+    [LATITUDE, LATITUDE, LONGTITUDE, LONGTITUDE, offset],
     (error, reviews) => {
       if (error) return res.status(500).send({ error: error.message });
       res.status(200).send({ reviews });
