@@ -1,73 +1,81 @@
 body {
-	margin: 0;
-	padding: 0;
-	font-family: var(--main-font);
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
 }
 
 main {
-	display: flex;
-	height: calc(100vh - 61px);
-	flex-direction: row;
+  display: flex;
+  height: calc(100vh - 61px);
+  flex-direction: row;
 }
 
 #left-container {
-	width: calc(100vw - 550px);
-	display: flex;
-	flex-direction: column;
+  width: calc(100vw - 550px);
+  display: flex;
+  flex-direction: column;
 }
 
 #right-container {
-	width: calc(550px - 40px);
-	display: flex;
-	flex-direction: column;
-	padding: 10px 20px;
-	background-color: white;
-	border-left: 1px solid #e0e0e0;
+  width: calc(550px - 40px);
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+  background-color: white;
+  border-left: 1px solid #e0e0e0;
 }
 
 #address-input-container {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	padding: 10px 20px;
-	background-color: white;
-	border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
 }
 #keyword {
-	flex-grow: 1;
-	margin-right: 10px;
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 #map {
-	flex-grow: 1;
-	overflow: hidden;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 #bottom-buttons-container {
-	height: 61px;
-	box-sizing: border-box;
-	padding: 10px 20px;
-	background-color: white;
-	border-top: 1px solid #e0e0e0;
-	display: flex;
-	align-items: center;
+  height: 61px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
 }
 
 #right-container h1 {
-	font-size: var(--main-font-size);
-	font-weight: bold;
+  font-size: var(--main-font-size);
+  font-weight: bold;
 }
 
 #info-container {
-	flex-grow: 1;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+}
+#info-container::-webkit-scrollbar {
+  display: none;
 }
 
 #info-container a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 #more-info-button {
-	width: calc(100% - 40px);
+  width: calc(100% - 40px);
 }

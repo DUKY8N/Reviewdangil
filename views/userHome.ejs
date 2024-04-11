@@ -126,7 +126,6 @@
                 contents: review.CONTENTS,
                 address_name: review.LOCATION_NAME,
               });
-              console.log(card);
               infoContainer.appendChild(card);
             });
           })
@@ -140,7 +139,6 @@
     // 지도에 마커를 표시하는 함수
     function displayMarker(place) {
       // 마커를 생성하고 지도에 표시합니다
-      console.log(place.place_name);
       var marker = new kakao.maps.Marker({
         map: map,
         position: new kakao.maps.LatLng(place.y, place.x),
