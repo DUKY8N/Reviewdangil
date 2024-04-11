@@ -67,19 +67,13 @@
 	{
 		e.preventDefault();
 
-		// var reviewId = 1;
-		var userId = document.querySelector().value;
-		var rating = document.querySelector('input[name="rating"]:checked').value;
-		// var headline = document.querySelector('#headline input').value;
-		// var createdDay = document.querySelector().value;
-		// var location = document.querySelector('#containerLocation input').value;
+		var rating = document.querySelector('input[name="rating"]:checked').value;	
+		var headline = document.querySelector('#headline input').value;
 		var contents = document.querySelector('#containerText textarea').value;
 
 		var data = {
-			'REVIEW_ID'
 			'headline': headline,
 			'rating': rating,
-			'location': location,
 			'CONTENTS': contents
 		};
 
