@@ -42,8 +42,36 @@ router.get("/announce-read", function (req, res, next) {
   res.render("announceRead");
 });
 
-router.get("/review-read", function (req, res, next) {
-  res.render("reviewRead");
+router.get("/review-read/:REVIEW_ID", function (req, res, next) {
+  const { REVIEW_ID } = req.params;
+
+  const selectReviewQuery = `
+    SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
+    l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
+
+    FROM review r
+    JOIN location l ON r.location_id = l.location_id
+    WHERE REVIEW_ID = ?
+	`;
+
+  req.app.locals.connection.query(
+    selectReviewQuery,
+    [REVIEW_ID],
+    (error, reviews) => {
+      if (error) return res.status(500).send({ error: error.message });
+      res.render("reviewRead", {
+        user: req.session.passport.user,
+        user_id: reviews[0].USER_ID,
+        rating: reviews[0].RATING,
+        created_date: reviews[0].CREATED_DATE,
+        content: reviews[0].CONTENTS,
+        headline: reviews[0].HEADLINE,
+        location_name: reviews[0].LOCATION_NAME,
+        latitude: reviews[0].LATITUDE,
+        longtitude: reviews[0].LONGTITUDE,
+      });
+    },
+  );
 });
 
 router.get(

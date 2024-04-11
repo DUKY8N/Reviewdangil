@@ -1,71 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
-		<link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
-		<link rel="stylesheet" href="/stylesheets/review.css" />
-		<title>Reviewdangil</title>
-	</head>
-	<body>
-		<header class="main-header">
-			<a href="/home" class="main-header-logo">Reviewdangil</a>
-			<div class="main-header-left-element">
-				<ul>
-					<li><a href="/mypage" class="white-a">계정 관리</a></li>
-					<li><a href="/" class="white-a">로그아웃</a></li>
-				</ul>
-				<img src="https://picsum.photos/200/300" alt="#" />
-			</div>
-		</header>
-		<main>
-			<div class="scrollbar"></div>
-			<div id="containerTop">
-				<div id="headline">
-					<h1>작성된 제목</h1>
-				</div>
-				<div class="star-rating space-x-4 mx-auto">
-					<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-					<label for="5-stars" class="star pr-4">★</label>
-					<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-					<label for="4-stars" class="star">★</label>
-					<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-					<label for="3-stars" class="star">★</label>
-					<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-					<label for="2-stars" class="star">★</label>
-					<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-					<label for="1-star" class="star">★</label>
-				</div>
-			</div>
-			<div id="containerLocation">위치 불러올 자리</div>
-			<div id="containerMap">맵 불러올 자리</div>
-			<div id="containerImg">
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-			</div>
-			<div id="containerText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae temporibus dolorum aliquid optio a quisquam nobis dolore quia reiciendis in dolorem ipsa nihil harum, cupiditate praesentium fugiat impedit, corporis magnam.
-			Sit qui eos molestiae obcaecati quasi laudantium blanditiis maiores, excepturi vel, sequi dignissimos velit exercitationem possimus autem eaque. Esse maiores cumque ratione minus vero beatae ipsam illo dolorum aut velit.
-			Sed cum ipsam quas quidem, eligendi reiciendis optio? Consequuntur earum veritatis porro eligendi cumque, cum quisquam laudantium ipsam omnis pariatur debitis autem inventore doloribus dolorem illo. Nam suscipit maxime dicta.
-			Doloremque esse nisi quas veniam necessitatibus expedita animi iste distinctio assumenda minima quidem eos a minus non, eaque perferendis fuga dolor blanditiis reiciendis corporis cumque, deserunt, nulla quod. Quas, officiis!
-			Totam quod architecto temporibus ad, laboriosam earum! Atque aperiam hic dolor accusantium assumenda omnis libero, porro beatae, eaque nobis illum quae alias. Doloremque sed quae libero unde deserunt dolores sapiente.
-			Incidunt, praesentium eveniet. Deleniti, delectus illo maiores nisi incidunt voluptates necessitatibus amet perspiciatis, eveniet aut optio vel aliquid impedit suscipit. Optio earum ullam error provident porro ducimus obcaecati perspiciatis maiores.
-			Voluptatibus blanditiis est quidem labore dolorum nulla, tempore nobis eveniet deserunt at accusamus animi id unde beatae magnam odit perferendis voluptas nisi! Omnis architecto nihil accusantium delectus ducimus sequi qui!
-			Repellendus voluptatibus laborum molestias sint illum exercitationem voluptas, deserunt reiciendis incidunt provident similique deleniti iusto at totam cum reprehenderit eaque. Autem, cupiditate nesciunt iure ipsa officia laboriosam! Illum, magni. Explicabo.
-			Odit doloremque repellendus quae, quisquam officiis dolorem praesentium, molestias et autem aliquid impedit eaque. In eius aperiam aliquid eveniet, voluptate deserunt minima praesentium labore porro eligendi nisi temporibus, dolore quas?
-			Culpa facere eos officiis reprehenderit consectetur assumenda, ad esse. Possimus unde nobis quasi, inventore quo optio! Quibusdam necessitatibus dolores ipsum cupiditate officia in natus impedit, voluptas possimus. Alias, tempora minus. ipsum dolor sit amet consectetur adipisicing elit. Corporis itaque adipisci cupiditate odio. Exercitationem quidem magnam cumque, vitae neque maiores eius nihil? Illum officia iure, totam voluptates nesciunt deleniti eaque?
-			Corrupti fugiat animi nesciunt repudiandae tempore iusto harum officia dolores voluptatum labore iure, totam aliquam natus temporibus minima illo quae? A quidem eius, ducimus pariatur quas possimus voluptatibus doloribus laboriosam?
-			Voluptates nesciunt laudantium corporis ipsam doloribus nisi, reprehenderit ad iure vel veniam eum saepe sed optio odit praesentium. Sint rem animi itaque vel qui optio consequuntur. Veritatis ratione similique inventore.
-			Perferendis maxime vero libero, voluptas tempore quia laborum quod tempora unde molestiae consectetur commodi obcaecati? Illum id nisi blanditiis fuga in repellat odit reiciendis! Minus tempore porro at pariatur magnam.
-			Ut odit provident repellendus maiores commodi voluptas eius voluptates atque necessitatibus ad assumenda illo veritatis alias harum ullam quis, eligendi sit sequi natus dolores. Corporis aspernatur illum reprehenderit possimus voluptates.</div>
-			<div id="containerBottom">
-				<a href="/review-write" class="white-a">리뷰 수정</a>
-				<a href="/home" class="black-a">리뷰 삭제</a>
-			</div>
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
+    <link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
+    <link rel="stylesheet" href="/stylesheets/reviewRead.css" />
+    <title>Reviewdangil</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/home" class="main-header-logo">Reviewdangil</a>
+      <div class="main-header-left-element">
+        <ul>
+          <li><a href="/mypage" class="white-a">계정 관리</a></li>
+          <li><a href="/" class="white-a">로그아웃</a></li>
+        </ul>
+        <img src="https://picsum.photos/200/300" alt="#" />
+      </div>
+    </header>
+    <main>
+      <div class="scrollbar"></div>
+      <div id="containerTop">
+        <div id="headline">
+          <h1><%= headline %></h1>
+        </div>
+        <div class="star-rating space-x-4 mx-auto">
+          <% for(let i = 5; i >= 1; i--){ %> <input type="radio" id="<%= i
+          %>-stars" name="rating" value="<%= i %>" <%= i == rating ? 'checked' :
+          '' %> disabled />
+          <label for="<%= i %>-stars" class="star">★</label>
+          <% } %>
+        </div>
+      </div>
+      <div>작성자: <%= user_id %></div>
+      <% var year = created_date.getFullYear(); var month = ('0' +
+      (created_date.getMonth() + 1)).slice(-2); var day = ('0' +
+      created_date.getDate()).slice(-2); var hours = ('0' +
+      created_date.getHours()).slice(-2); var minutes = ('0' +
+      created_date.getMinutes()).slice(-2); var seconds = ('0' +
+      created_date.getSeconds()).slice(-2); var formattedDate = year + '/' +
+      month + '/' + day + ', ' + hours + ':' + minutes + ':' + seconds; %>
+      <div>작성 시간: <%= formattedDate %></div>
+      <br />
+      <div id="containerLocation"><%= location_name %></div>
+      <div id="containerMap">맵 불러올 자리</div>
+      <div id="containerText"><%= content %></div>
+      <% if (user == user_id) { %>
+      <div id="containerBottom">
+        <a href="/review-write" class="white-a">리뷰 수정</a>
+        <a href="/home" class="black-a">리뷰 삭제</a>
+      </div>
+      <% } %>
+    </main>
+  </body>
+  <script
+    type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db886bb91673c40690514beb7a31ace6&libraries=services"
+  ></script>
+  <script>
+    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+    var kakaoInfoWindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+    var mapContainer = document.getElementById("containerMap"), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(<%= latitude %>, <%= longtitude %>), // 지도의 중심좌표
+        level: 3, // 지도의 확대 레벨
+      };
+
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    displayMarker({ x: <%= longtitude %>, y: <%= latitude %> });
+
+    // 지도에 마커를 표시하는 함수
+    function displayMarker(place) {
+      // 마커를 생성하고 지도에 표시합니다
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x),
+      });
+    }
+  </script>
 </html>

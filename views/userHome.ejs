@@ -125,6 +125,7 @@
                 headline: review.HEADLINE,
                 contents: review.CONTENTS,
                 address_name: review.LOCATION_NAME,
+                review_id: review.REVIEW_ID,
               });
               infoContainer.appendChild(card);
             });
@@ -167,7 +168,7 @@
       });
     function createInfoCard(place) {
       var link = document.createElement("a");
-      link.href = `/review-read/${place.id}`; // 예시로 각 장소의 상세 리뷰 페이지로 연결
+      link.href = `/review-read/${place.review_id}`; // 예시로 각 장소의 상세 리뷰 페이지로 연결
       link.className = "info-card-link";
 
       var card = document.createElement("div");

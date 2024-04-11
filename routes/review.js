@@ -74,7 +74,7 @@ router.get("/:LATITUDE/:LONGTITUDE/:page?", (req, res) => {
   const offset = (page - 1 || 0) * 12;
 
   const selectReviewQuery = `
-    SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
+   SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
     l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
 
     FROM review r
@@ -101,8 +101,11 @@ router.get("/:REVIEW_ID", (req, res) => {
   const { REVIEW_ID } = req.params;
 
   const selectReviewQuery = `
-		SELECT USER_ID, RATING, CREATED_DATE, CONTENTS
-		FROM review
+    SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
+    l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
+
+    FROM review r
+    JOIN location l ON r.location_id = l.location_id
 		WHERE REVIEW_ID = ?
 	`;
 
