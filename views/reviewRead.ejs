@@ -48,7 +48,7 @@
       <div id="containerText"><%= content %></div>
       <% if (user == user_id) { %>
       <div id="containerBottom">
-        <a href="/review-write" class="white-a">리뷰 수정</a>
+        <a href="/review-edit/<%=review_id%>" class="white-a">리뷰 수정</a>
         <a href="/home" class="black-a">리뷰 삭제</a>
       </div>
       <% } %>
