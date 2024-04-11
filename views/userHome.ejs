@@ -100,6 +100,8 @@
         var infoContainer = document.getElementById("info-container");
         infoContainer.innerHTML = "";
 
+        var moreInfoButton = document.getElementById("more-info-button");
+
         for (var i = 0; i < data.length; i++) {
           // 검색 결과가 경주 지역 내에 있는지 확인합니다
           if (
@@ -111,6 +113,12 @@
             displayMarker(data[i]);
             bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
           }
+        }
+
+        if (bounds.isEmpty()) {
+          moreInfoButton.style.display = "none";
+        } else {
+          moreInfoButton.style.display = "block"; // 검색 결과가 있을 때 버튼 표시
         }
 
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
