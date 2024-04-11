@@ -12,8 +12,8 @@ router.get("/login", function (req, res, next) {
 
 // 유저 페이지
 
-router.get("/signup", function (req, res, next) {
-	res.render("signUp");
+router.get('/signUp', function(req, res, next) {
+  res.render('signUp', { message: req.flash('message') });
 });
 
 router.get("/home", function (req, res, next) {

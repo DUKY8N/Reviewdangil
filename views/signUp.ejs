@@ -55,4 +55,9 @@
 
 		</main>
 	</body>
+	<% if (message && message.length > 0) { %>
+		<script>
+			alert('<%= message %>');
+		</script>
+	<% } %>
 	</html>

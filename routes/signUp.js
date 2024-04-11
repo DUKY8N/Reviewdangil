@@ -22,8 +22,7 @@ router.post('/', upload.single('profile_pic'), (req, res) => {
 
     req.app.locals.connection.query(sql, values, (err, result) => {
       if (err) throw err;
-      req.flash('message', '회원가입이 완료되었습니다.');
-      res.redirect('/login'); // Redirect to login page after successful registration
+      res.render('login', { message: '회원가입이 완료되었습니다.' }); // Render the login page with the message
     });
   });
 });
