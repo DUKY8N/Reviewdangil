@@ -4,8 +4,15 @@ var router = express.Router();
 
 // 리뷰 쓰기
 router.post("/new-review", (req, res) => {
-  const { LOCATION_NAME, LATITUDE, LONGTITUDE, USER_ID, RATING, CONTENTS } =
-    req.body;
+  const {
+    LOCATION_NAME,
+    LATITUDE,
+    LONGTITUDE,
+    USER_ID,
+    RATING,
+    CONTENTS,
+    HEADLINE,
+  } = req.body;
 
   const insertLocationQuery = `
 		INSERT INTO location (LOCATION_NAME, LATITUDE, LONGTITUDE)
@@ -19,13 +26,13 @@ router.post("/new-review", (req, res) => {
 
       const locationId = locationResult.insertId;
       const insertReviewQuery = `
-				INSERT INTO review (USER_ID, RATING, CREATED_DATE, location_id, CONTENTS)
-				VALUES (?, ?, NOW(), ?, ?)
+				INSERT INTO review (USER_ID, RATING, CREATED_DATE, location_id, CONTENTS, HEADLINE)
+				VALUES (?, ?, NOW(), ?, ?, ?)
 			`;
 
       req.app.locals.connection.query(
         insertReviewQuery,
-        [USER_ID, RATING, locationId, CONTENTS],
+        [USER_ID, RATING, locationId, CONTENTS, HEADLINE],
         (error, reviewResult) => {
           if (error) return res.status(500).send({ error: error.message });
 

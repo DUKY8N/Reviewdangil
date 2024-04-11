@@ -1,156 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
-		<link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
-		<link rel="stylesheet" href="/stylesheets/module/infoCardModule.css" />
-		<link rel="stylesheet" href="/stylesheets/userHome.css" />
-		<title>Document</title>
-	</head>
-	<body>
-		<header class="main-header">
-			<a href="/home" class="main-header-logo">Reviewdangil</a>
-			<div class="main-header-left-element">
-				<ul>
-					<li><a href="/mypage" class="white-a">계정 관리</a></li>
-					<li>
-						<a href="/login" class="white-a">로그아웃</a>
-					</li>
-				</ul>
-				<img src="https://picsum.photos/200/300" alt="프로필 이미지" />
-			</div>
-		</header>
-		<main>
-			<section id="left-container">
-				<div id="address-input-container">
-					<input
-						type="text"
-						class="text-input"
-						id="keyword"
-						placeholder="위치 입력"
-					/>
-					<button class="white-button" onclick="searchPlaces()">
-						리뷰 검색
-					</button>
-				</div>
-				<div id="map" style="width: 100%; height: 100%"></div>
-				<div id="bottom-buttons-container">
-					<span
-						>리뷰를 쓰시려면 상단 검색창에 리뷰를 검색을 하시고,
-						지도에서 마커를 눌러주세요.</span
-					>
-				</div>
-			</section>
-			<section id="right-container">
-				<h1>현 위치 최근 리뷰</h1>
-				<div id="info-container">
-					<a href="/review-read">
-						<div class="info-card">
-							<img src="https://picsum.photos/200" alt="썸네일" />
-							<div class="info-card-text">
-								<span>리뷰 제목</span>
-								<span class="review-text-thumbnail">
-									리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰
-									내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용
-									어쩌고 저쩌고 어쩌고 저쩌고
-								</span>
-								<span>위치</span>
-							</div>
-						</div>
-					</a>
-				</div>
-				<a href="/more-review" class="white-a" id="more-info-button">
-					리뷰 더보기
-				</a>
-			</section>
-		</main>
-	</body>
-	<script
-		type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db886bb91673c40690514beb7a31ace6&libraries=services"
-	></script>
-	<script>
-		// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-		var kakaoInfoWindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
+    <link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
+    <link rel="stylesheet" href="/stylesheets/module/infoCardModule.css" />
+    <link rel="stylesheet" href="/stylesheets/userHome.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/home" class="main-header-logo">Reviewdangil</a>
+      <div class="main-header-left-element">
+        <ul>
+          <li><a href="/mypage" class="white-a">계정 관리</a></li>
+          <li>
+            <a href="/login" class="white-a">로그아웃</a>
+          </li>
+        </ul>
+        <img src="https://picsum.photos/200/300" alt="프로필 이미지" />
+      </div>
+    </header>
+    <main>
+      <section id="left-container">
+        <div id="address-input-container">
+          <input
+            type="text"
+            class="text-input"
+            id="keyword"
+            placeholder="위치 입력"
+          />
+          <button class="white-button" onclick="searchPlaces()">
+            리뷰 검색
+          </button>
+        </div>
+        <div id="map" style="width: 100%; height: 100%"></div>
+        <div id="bottom-buttons-container">
+          <span
+            >리뷰를 쓰시려면 상단 검색창에 리뷰를 검색을 하시고, 지도에서 마커를
+            눌러주세요.</span
+          >
+        </div>
+      </section>
+      <section id="right-container">
+        <h1>현 위치 최근 리뷰</h1>
+        <div id="info-container">
+          <a href="/review-read">
+            <div class="info-card">
+              <img src="https://picsum.photos/200" alt="썸네일" />
+              <div class="info-card-text">
+                <span>리뷰 제목</span>
+                <span class="review-text-thumbnail">
+                  리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고 리뷰 내용 어쩌고 저쩌고
+                  어쩌고 저쩌고 리뷰 내용 어쩌고 저쩌고 어쩌고 저쩌고
+                </span>
+                <span>위치</span>
+              </div>
+            </div>
+          </a>
+        </div>
+        <a href="/more-review" class="white-a" id="more-info-button">
+          리뷰 더보기
+        </a>
+      </section>
+    </main>
+  </body>
+  <script
+    type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db886bb91673c40690514beb7a31ace6&libraries=services"
+  ></script>
+  <script>
+    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+    var kakaoInfoWindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
-		var mapContainer = document.getElementById("map"), // 지도를 표시할 div
-			mapOption = {
-				center: new kakao.maps.LatLng(35.8562, 129.2243), // 지도의 중심좌표를 경주로 변경
-				level: 6, 
-			};
+    var mapContainer = document.getElementById("map"), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(35.8562, 129.2243), // 지도의 중심좌표를 경주로 변경
+        level: 6,
+      };
 
-		// 지도를 생성합니다
-		var map = new kakao.maps.Map(mapContainer, mapOption);
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
 
-		// 장소 검색 객체를 생성합니다
-		var ps = new kakao.maps.services.Places();
+    // 장소 검색 객체를 생성합니다
+    var ps = new kakao.maps.services.Places();
 
-		// 키워드 검색 함수
-		function searchPlaces() {
-			var keyword = document.getElementById("keyword").value;
+    // 키워드 검색 함수
+    function searchPlaces() {
+      var keyword = document.getElementById("keyword").value;
 
-			if (!keyword.replace(/^\s+|\s+$/g, "")) {
-				alert("키워드를 입력해주세요!");
-				return false;
-			}
+      if (!keyword.replace(/^\s+|\s+$/g, "")) {
+        alert("키워드를 입력해주세요!");
+        return false;
+      }
 
-			// 검색 키워드에 "경주"를 추가합니다
-			keyword = "경주 " + keyword;
+      // 검색 키워드에 "경주"를 추가합니다
+      keyword = "경주 " + keyword;
 
-			// 장소 검색을 요청합니다
-			ps.keywordSearch(keyword, placesSearchCB);
-		}
+      // 장소 검색을 요청합니다
+      ps.keywordSearch(keyword, placesSearchCB);
+    }
 
-		// 키워드 검색 완료 시 호출되는 콜백함수
-		function placesSearchCB(data, status, pagination) {
-			if (status === kakao.maps.services.Status.OK) {
-				// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-				// LatLngBounds 객체에 좌표를 추가합니다
-				var bounds = new kakao.maps.LatLngBounds();
+    // 키워드 검색 완료 시 호출되는 콜백함수
+    function placesSearchCB(data, status, pagination) {
+      if (status === kakao.maps.services.Status.OK) {
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+        // LatLngBounds 객체에 좌표를 추가합니다
+        var bounds = new kakao.maps.LatLngBounds();
 
-				for (var i = 0; i < data.length; i++) {
-					// 검색 결과가 경주 지역 내에 있는지 확인합니다
-					if (data[i].y >= 35.7631 && data[i].y <= 35.9631 && data[i].x >= 129.1906 && data[i].x <= 129.3106) {
-						displayMarker(data[i]);
-						bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
-					}
-				}
+        for (var i = 0; i < data.length; i++) {
+          // 검색 결과가 경주 지역 내에 있는지 확인합니다
+          if (
+            data[i].y >= 35.7631 &&
+            data[i].y <= 35.9631 &&
+            data[i].x >= 129.1906 &&
+            data[i].x <= 129.3106
+          ) {
+            displayMarker(data[i]);
+            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+          }
+        }
 
-				// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-				map.setBounds(bounds);
-			}
-		}
+        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+        map.setBounds(bounds);
+      }
+    }
 
-		// 지도에 마커를 표시하는 함수
-		function displayMarker(place) {
-			// 마커를 생성하고 지도에 표시합니다
-			var marker = new kakao.maps.Marker({
-				map: map,
-				position: new kakao.maps.LatLng(place.y, place.x),
-			});
+    // 지도에 마커를 표시하는 함수
+    function displayMarker(place) {
+      // 마커를 생성하고 지도에 표시합니다
+      console.log(place.place_name);
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x),
+      });
 
-			// 마커에 클릭이벤트를 등록합니다
-			kakao.maps.event.addListener(marker, "click", function () {
-				// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-				kakaoInfoWindow.setContent(
-					`
+      // 마커에 클릭이벤트를 등록합니다
+      kakao.maps.event.addListener(marker, "click", function () {
+        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+        kakaoInfoWindow.setContent(
+          `
 					<div style="padding:5px;font-size:12px;">
-						<a href="#">리뷰 작성하기</a>
+						<a href="review-write/${place.y}/${place.x}/${place.place_name}">리뷰 작성하기</a>
 					</div>
-					`
-				);
-				kakaoInfoWindow.open(map, marker);
-			});
-		}
+					`,
+        );
+        kakaoInfoWindow.open(map, marker);
+      });
+    }
 
-		document
-			.getElementById("keyword")
-			.addEventListener("keypress", function (e) {
-				if (e.key === "Enter") {
-					searchPlaces();
-				}
-			});
-	</script>
+    document
+      .getElementById("keyword")
+      .addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          searchPlaces();
+        }
+      });
+  </script>
 </html>

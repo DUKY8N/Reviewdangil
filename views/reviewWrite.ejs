@@ -1,96 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
-		<link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
-		<link rel="stylesheet" href="/stylesheets/review.css" />
-		<title>Reviewdangil</title>
-	</head>
-	<body>
-		<header class="main-header">
-			<a href="/home" class="main-header-logo">Reviewdangil</a>
-			<div class="main-header-left-element">
-				<ul>
-					<li><a href="/mypage" class="white-a">계정 관리</a></li>
-					<li><a href="/" class="white-a">로그아웃</a></li>
-				</ul>
-				<img src="https://picsum.photos/200/300" alt="#" />
-			</div>
-		</header>
-		<main>
-			<div class="scrollbar"></div>
-			<div id="containerTop">
-				<div id="headline">
-					<input type="text" name="headline" placeholder="제목을 입력하세요">
-				</div>
-				<div class="star-rating space-x-4 mx-auto">
-					<input type="radio" id="5-stars" name="rating" value="5" v-model="ratings"/>
-					<label for="5-stars" class="star pr-4">★</label>
-					<input type="radio" id="4-stars" name="rating" value="4" v-model="ratings"/>
-					<label for="4-stars" class="star">★</label>
-					<input type="radio" id="3-stars" name="rating" value="3" v-model="ratings"/>
-					<label for="3-stars" class="star">★</label>
-					<input type="radio" id="2-stars" name="rating" value="2" v-model="ratings"/>
-					<label for="2-stars" class="star">★</label>
-					<input type="radio" id="1-star" name="rating" value="1" v-model="ratings" />
-					<label for="1-star" class="star">★</label>
-				</div>
-			</div>
-			<div id="containerLocation">
-				<input type="text" name="location" placeholder="위치를 입력하세요">
-			</div>
-			<div id="containerMap">맵 불러올 자리</div>
-			<div id="containerImg">
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-				<img src="https://picsum.photos/450/450" />
-			</div>
-			<div id="containerButton">
-				<button class="white-button">이미지 첨부하기</button>
-			</div>
-			<div id="containerText">
-				<textarea name="contents" oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"' placeholder="내용을 입력하세요"></textarea>
-			</div>
-			<div id="containerBottom">
-				<a href="/home" class="white-a">취소</a>
-				<a href="/review-read" class="black-a">작성 완료</a>
-			</div>
-		</main>
-	</body>
-	<script>
-		document.querySelector('#containerBottom .black-a').addEventListener('click', function(e) 
-	{
-		e.preventDefault();
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/module/toolbox.css" />
+    <link rel="stylesheet" href="/stylesheets/module/headerModule.css" />
+    <link rel="stylesheet" href="/stylesheets/review.css" />
+    <title>Reviewdangil</title>
+  </head>
+  <body>
+    <header class="main-header">
+      <a href="/home" class="main-header-logo">Reviewdangil</a>
+      <div class="main-header-left-element">
+        <ul>
+          <li><a href="/mypage" class="white-a">계정 관리</a></li>
+          <li><a href="/" class="white-a">로그아웃</a></li>
+        </ul>
+        <img src="https://picsum.photos/200/300" alt="#" />
+      </div>
+    </header>
+    <main>
+      <div class="scrollbar"></div>
+      <div id="containerTop">
+        <div id="headline">
+          <input type="text" name="headline" placeholder="제목을 입력하세요" />
+        </div>
+        <div class="star-rating space-x-4 mx-auto">
+          <input
+            type="radio"
+            id="5-stars"
+            name="rating"
+            value="5"
+            v-model="ratings"
+          />
+          <label for="5-stars" class="star pr-4">★</label>
+          <input
+            type="radio"
+            id="4-stars"
+            name="rating"
+            value="4"
+            v-model="ratings"
+          />
+          <label for="4-stars" class="star">★</label>
+          <input
+            type="radio"
+            id="3-stars"
+            name="rating"
+            value="3"
+            v-model="ratings"
+          />
+          <label for="3-stars" class="star">★</label>
+          <input
+            type="radio"
+            id="2-stars"
+            name="rating"
+            value="2"
+            v-model="ratings"
+          />
+          <label for="2-stars" class="star">★</label>
+          <input
+            type="radio"
+            id="1-star"
+            name="rating"
+            value="1"
+            v-model="ratings"
+          />
+          <label for="1-star" class="star">★</label>
+        </div>
+      </div>
+      <div id="containerLocation"><%= locationName %></div>
+      <div id="containerMap"></div>
+      <div id="containerButton"></div>
+      <div id="containerText">
+        <textarea
+          name="contents"
+          oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+          placeholder="내용을 입력하세요"
+        ></textarea>
+      </div>
+      <div id="containerBottom">
+        <a href="/home" class="white-a">취소</a>
+        <a href="/review-read" class="black-a">작성 완료</a>
+      </div>
+    </main>
+  </body>
+  <script>
+    document
+      .querySelector("#containerBottom .black-a")
+      .addEventListener("click", function (e) {
+        e.preventDefault();
+        console.log("TEST");
 
-		var rating = document.querySelector('input[name="rating"]:checked').value;	
-		var headline = document.querySelector('#headline input').value;
-		var contents = document.querySelector('#containerText textarea').value;
+        var rating = document.querySelector('input[name="rating"]:checked');
+        if (rating) rating = rating.value; else rating = "0";
 
-		var data = {
-			'headline': headline,
-			'rating': rating,
-			'CONTENTS': contents
-		};
+        var headline = document.querySelector("#headline input").value;
+        var contents = document.querySelector("#containerText textarea").value;
+        var data = {
+          HEADLINE: headline,
+          RATING: rating,
+          CONTENTS: contents,
+          USER_ID: "<%= user %>",
+          LATITUDE: <%= latitude %>,
+          LONGITUDE: <%= longitude %>,
+          LOCATION_NAME: "<%= locationName %>",
+        };
+        console.log(data);
 
-		fetch('/review-read', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify(data),
-		})
-		.then(response => response.json())
-		.then(data => {
-			console.log('Success:', data);
-		})
-		.catch((error) => {
-			console.error('Error:', error);
-		});
-	});
-	</script>
+        fetch("/api/review/new-review", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log("Success:", data);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      });
+  </script>
+  <script
+    type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db886bb91673c40690514beb7a31ace6&libraries=services"
+  ></script>
+  <script>
+    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+    var kakaoInfoWindow = new kakao.maps.InfoWindow({ zIndex: 1 });
+
+    var mapContainer = document.getElementById("containerMap"), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(<%= latitude %>, <%= longitude %>), // 지도의 중심좌표
+        level: 3, // 지도의 확대 레벨
+      };
+
+
+    // 지도를 생성합니다
+    var map = new kakao.maps.Map(mapContainer, mapOption);
+    displayMarker({ x: <%= longitude %>, y: <%= latitude %> });
+
+    // 지도에 마커를 표시하는 함수
+    function displayMarker(place) {
+      // 마커를 생성하고 지도에 표시합니다
+      var marker = new kakao.maps.Marker({
+        map: map,
+        position: new kakao.maps.LatLng(place.y, place.x),
+      });
+    }
+  </script>
 </html>
