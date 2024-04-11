@@ -125,6 +125,7 @@
         map.setBounds(bounds);
         let centerLatitude = (bounds.qa + bounds.pa) / 2;
         let centerLongitude = (bounds.ha + bounds.oa) / 2;
+        moreInfoButton.href = `/more-review/${centerLatitude}/${centerLongitude}`;
         fetch(`/api/review/${centerLatitude}/${centerLongitude}`)
           .then((response) => response.json())
           .then((data) => {

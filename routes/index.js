@@ -21,22 +21,60 @@ router.get("/home", function (req, res, next) {
   res.render("userHome");
 });
 
-router.get("/more-review", function (req, res, next) {
-  // 데이터베이스에서 리뷰를 가져옵니다.
-  req.app.locals.connection.query(
-    "SELECT * FROM review",
-    function (error, reviews) {
-      if (error) {
-        // 에러 처리
-        console.error(error);
-        res.status(500).send("Database Error");
-      } else {
-        // 'moreReview' 템플릿에 리뷰 데이터를 전달하고 렌더링합니다.
-        res.render("moreReview", { reviews: reviews });
-      }
-    },
-  );
-});
+router.get(
+  "/more-review/:LATITUDE/:LONGTITUDE/:page?",
+  function (req, res, next) {
+    const { LATITUDE, LONGTITUDE, page = 1 } = req.params; // 기본 페이지를 1로 설정
+    const offset = (page - 1) * 12;
+
+    // 총 리뷰 개수를 조회하는 쿼리
+    const countQuery = `
+    SELECT COUNT(*) AS total
+    FROM review r
+    JOIN location l ON r.location_id = l.location_id
+    WHERE l.LATITUDE BETWEEN ? - 0.01 AND ? + 0.01
+    AND l.LONGTITUDE BETWEEN ? - 0.01 AND ? + 0.01
+  `;
+
+    // 리뷰 데이터를 조회하는 쿼리
+    const selectReviewQuery = `
+    SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
+      l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
+    FROM review r
+    JOIN location l ON r.location_id = l.location_id
+    WHERE l.LATITUDE BETWEEN ? - 0.01 AND ? + 0.01
+    AND l.LONGTITUDE BETWEEN ? - 0.01 AND ? + 0.01
+    ORDER BY r.CREATED_DATE DESC
+    LIMIT 12 OFFSET ?
+  `;
+
+    req.app.locals.connection.query(
+      countQuery,
+      [LATITUDE, LATITUDE, LONGTITUDE, LONGTITUDE],
+      (error, result) => {
+        if (error) return res.status(500).send({ error: error.message });
+
+        const totalReviews = result[0].total;
+        const totalPages = Math.ceil(totalReviews / 12);
+
+        req.app.locals.connection.query(
+          selectReviewQuery,
+          [LATITUDE, LATITUDE, LONGTITUDE, LONGTITUDE, offset],
+          (error, reviews) => {
+            if (error) return res.status(500).send({ error: error.message });
+            res.render("moreReview", {
+              LATITUDE,
+              LONGTITUDE,
+              reviews,
+              totalPages,
+              page,
+            });
+          },
+        );
+      },
+    );
+  },
+);
 
 router.get("/announce-read", function (req, res, next) {
   res.render("announceRead");
