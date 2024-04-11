@@ -110,4 +110,23 @@ router.get("/:REVIEW_ID", (req, res) => {
   );
 });
 
+//게시물 삭제
+router.delete("/:REVIEW_ID", (req, res) => {
+  const { REVIEW_ID } = req.params;
+
+  const deleteReviewQuery = `
+		DELETE FROM review
+		WHERE REVIEW_ID = ?
+	`;
+
+  req.app.locals.connection.query(
+    deleteReviewQuery,
+    [REVIEW_ID],
+    (error, result) => {
+      if (error) return res.status(500).send({ error: error.message });
+      res.status(200).send({ message: "Review successfully deleted" });
+    },
+  );
+});
+
 module.exports = router;
