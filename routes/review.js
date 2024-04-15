@@ -96,7 +96,7 @@ router.get("/:LATITUDE/:LONGTITUDE/:page?", (req, res) => {
   );
 });
 
-//게시물 보기
+// 게시물 보기
 router.get("/:REVIEW_ID", (req, res) => {
   const { REVIEW_ID } = req.params;
 
@@ -106,8 +106,8 @@ router.get("/:REVIEW_ID", (req, res) => {
 
     FROM review r
     JOIN location l ON r.location_id = l.location_id
-		WHERE REVIEW_ID = ?
-	`;
+    WHERE REVIEW_ID = ?
+  `;
 
   req.app.locals.connection.query(
     selectReviewQuery,
@@ -115,25 +115,31 @@ router.get("/:REVIEW_ID", (req, res) => {
     (error, reviews) => {
       if (error) return res.status(500).send({ error: error.message });
 
-      res.status(200).send({ reviews });
+      // 렌더링할 때 message 변수를 삭제합니다.
+      res.render('reviewRead', { reviews: reviews });
     },
   );
 });
 
-//게시물 삭제
+// 게시물 삭제
 router.delete("/:REVIEW_ID", (req, res) => {
   const { REVIEW_ID } = req.params;
 
   const deleteReviewQuery = `
-		DELETE FROM review
-		WHERE REVIEW_ID = ?
-	`;
+    DELETE FROM review
+    WHERE REVIEW_ID = ?
+  `;
 
   req.app.locals.connection.query(
     deleteReviewQuery,
     [REVIEW_ID],
     (error, result) => {
       if (error) return res.status(500).send({ error: error.message });
+
+      // 삭제가 성공적으로 이루어진 후에 메시지를 설정합니다.
+      req.flash('message', '리뷰가 성공적으로 삭제되었습니다.');
+
+      // 클라이언트에 메시지를 전달합니다.
       res.status(200).send({ message: "Review successfully deleted" });
     },
   );

@@ -75,6 +75,25 @@ router.get(
     );
   },
 );
+router.post("/review-delete/:REVIEW_ID", function (req, res, next) {
+  const { REVIEW_ID } = req.params;
+
+  const deleteReviewQuery = `
+    DELETE FROM review
+    WHERE REVIEW_ID = ?
+  `;
+
+  req.app.locals.connection.query(
+    deleteReviewQuery,
+    [REVIEW_ID],
+    (error, result) => {
+      if (error) return res.status(500).send({ error: error.message });
+
+      // 삭제가 성공적으로 이루어진 후에 메시지를 설정합니다.
+      res.json({ message: '리뷰가 성공적으로 삭제되었습니다.' });
+    },
+  );
+});
 
 router.get("/announce-read", function (req, res, next) {
   res.render("announceRead");
@@ -82,7 +101,7 @@ router.get("/announce-read", function (req, res, next) {
 
 router.get("/review-read/:REVIEW_ID", function (req, res, next) {
   const { REVIEW_ID } = req.params;
-
+  
   const selectReviewQuery = `
     SELECT r.REVIEW_ID, r.USER_ID, r.RATING, r.CREATED_DATE, r.CONTENTS, r.HEADLINE,
     l.LOCATION_NAME, l.LATITUDE, l.LONGTITUDE
@@ -90,13 +109,19 @@ router.get("/review-read/:REVIEW_ID", function (req, res, next) {
     FROM review r
     JOIN location l ON r.location_id = l.location_id
     WHERE REVIEW_ID = ?
-	`;
+  `;
 
   req.app.locals.connection.query(
     selectReviewQuery,
     [REVIEW_ID],
     (error, reviews) => {
       if (error) return res.status(500).send({ error: error.message });
+
+      // 세션에서 message를 가져옵니다.
+      const message = req.session.message;
+      // message를 사용한 후에는 세션에서 삭제합니다.
+      delete req.session.message;
+
       res.render("reviewRead", {
         review_id: REVIEW_ID,
         user: req.session.passport.user,
@@ -108,6 +133,7 @@ router.get("/review-read/:REVIEW_ID", function (req, res, next) {
         location_name: reviews[0].LOCATION_NAME,
         latitude: reviews[0].LATITUDE,
         longtitude: reviews[0].LONGTITUDE,
+        message: message // 세션에서 가져온 message를 사용합니다.
       });
     },
   );
