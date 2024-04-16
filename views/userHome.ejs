@@ -159,10 +159,10 @@
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
         kakaoInfoWindow.setContent(
           `
-					<div style="padding:5px;font-size:12px;">
-						<a href="review-write/${place.y}/${place.x}/${place.place_name}">리뷰 작성하기</a>
-					</div>
-					`,
+    	<div style="padding:5px;font-size:12px;">
+    		<a href="review-write/${place.y}/${place.x}/${place.place_name}">리뷰 작성하기</a>
+    	</div>
+    	`,
         );
         kakaoInfoWindow.open(map, marker);
       });
@@ -183,9 +183,8 @@
       var card = document.createElement("div");
       card.className = "info-card";
 
-      var image = document.createElement("img");
-      image.src = "https://picsum.photos/200";
-      image.alt = "썸네일";
+      var image = document.createElement("div");
+      image.className = `sidebar-map ${place.address_name.replace(/ /g, "-")}`;
 
       var textContainer = document.createElement("div");
       textContainer.className = "info-card-text";
