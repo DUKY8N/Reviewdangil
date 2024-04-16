@@ -127,24 +127,24 @@
         let centerLongitude = (bounds.ha + bounds.oa) / 2;
         moreInfoButton.href = `/more-review/${centerLatitude}/${centerLongitude}`;
         fetch(`/api/review/${centerLatitude}/${centerLongitude}`)
-        .then((response) => response.json())
-        .then((data) => {
-          data.reviews.forEach((review) => {
-            var card = createInfoCard({
-              headline: review.HEADLINE,
-              contents: review.CONTENTS,
-              address_name: review.LOCATION_NAME,
-              review_id: review.REVIEW_ID,
-              LATITUDE: review.LATITUDE,
-              LONGTITUDE: review.LONGTITUDE
+          .then((response) => response.json())
+          .then((data) => {
+            data.reviews.forEach((review) => {
+              var card = createInfoCard({
+                headline: review.HEADLINE,
+                contents: review.CONTENTS,
+                address_name: review.LOCATION_NAME,
+                review_id: review.REVIEW_ID,
+                LATITUDE: review.LATITUDE,
+                LONGTITUDE: review.LONGTITUDE,
+              });
+              infoContainer.appendChild(card);
             });
-            infoContainer.appendChild(card);
+          })
+          .catch((error) => {
+            // Handle any errors that occur during the fetch request
+            console.error(error);
           });
-        })
-        .catch((error) => {
-          // Handle any errors that occur during the fetch request
-          console.error(error);
-        });
       }
     }
 
@@ -186,19 +186,22 @@
       card.className = "info-card";
 
       var mapContainer = document.createElement("div");
-      mapContainer.style.width = '100%';
-      mapContainer.style.height = '100px';
-      mapContainer.style.overflow = 'hidden';
-      setTimeout(function() {
-        console.log(`Latitude: ${place.LATITUDE}, Longitude: ${place.LONGTITUDE}`);
+      mapContainer.style.width = "200px";
+      mapContainer.style.height = "128px";
+      mapContainer.style.overflow = "hidden";
+      mapContainer.style.borderRadius = "8px";
+      setTimeout(function () {
+        console.log(
+          `Latitude: ${place.LATITUDE}, Longitude: ${place.LONGTITUDE}`,
+        );
         var map = new kakao.maps.Map(mapContainer, {
           center: new kakao.maps.LatLng(place.LATITUDE, place.LONGTITUDE),
-          level: 2
+          level: 2,
         });
         map.setDraggable(false);
         map.setZoomable(false);
         var marker = new kakao.maps.Marker({
-          position: new kakao.maps.LatLng(place.LATITUDE, place.LONGTITUDE)
+          position: new kakao.maps.LatLng(place.LATITUDE, place.LONGTITUDE),
         });
         marker.setMap(map);
       }, 0);
