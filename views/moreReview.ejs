@@ -8,6 +8,10 @@
 		<link rel="stylesheet" href="/stylesheets/module/infoCardModule.css" />
 		<link rel="stylesheet" href="/stylesheets/moreReview.css" />
 		<title>Document</title>
+		<script
+			type="text/javascript"
+			src="//dapi.kakao.com/v2/maps/sdk.js?appkey=db886bb91673c40690514beb7a31ace6&libraries=services"
+		></script>
 	</head>
 	<body>
 		<header class="main-header">
@@ -33,7 +37,7 @@
 					<% reviews.forEach(function(review){ %>
 						<a href="/review-read/<%= review.REVIEW_ID %>">
 							<div class="info-card">
-								<img src="https://picsum.photos/200" alt="썸네일" />
+								<div class="thumbnail-map <%= review.LOCATION_NAME.replace(/ /g, '-') %>"></div>
 								<div class="info-card-text">
 									<span><%= review.HEADLINE %></span>
 									<span class="review-text-thumbnail">
@@ -43,6 +47,27 @@
 								</div>
 							</div>
 						</a>
+						<script>
+							document.addEventListener("DOMContentLoaded", function() {
+									<% reviews.forEach(function(review) { %>
+											var className = '<%= review.LOCATION_NAME.replace(/ /g, '-') %>';
+											var mapContainers = document.getElementsByClassName(className);
+											for (var i = 0; i < mapContainers.length; i++) {
+													var mapContainer = mapContainers[i];
+													var mapOption = {
+															center: new kakao.maps.LatLng(<%= review.LATITUDE %>, <%= review.LONGTITUDE %>),
+															draggable: false,
+															level: 3
+													};
+													var map = new kakao.maps.Map(mapContainer, mapOption);
+													var marker = new kakao.maps.Marker({
+															position: new kakao.maps.LatLng(<%= review.LATITUDE %>, <%= review.LONGTITUDE %>)
+													});
+													marker.setMap(map);
+												}
+									<% }); %>
+							});
+						</script>
 					<% }); %>
 							</div>
 						</a>
