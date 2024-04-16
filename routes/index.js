@@ -18,7 +18,15 @@ router.get("/signup", function (req, res, next) {
 
 router.get("/home", function (req, res, next) {
   console.log("User ID in session:", req.session.passport.user);
-  res.render("userHome");
+
+  req.app.locals.connection.query(
+    'SELECT review.*, location.LATITUDE, location.LONGTITUDE FROM review INNER JOIN location ON review.location_id = location.location_id',
+    (error, results) => {
+      if (error) return next(error);
+
+      res.render("userHome", { reviews: results });
+    },
+  );
 });
 
 router.get(
